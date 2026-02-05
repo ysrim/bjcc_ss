@@ -1,0 +1,83 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script><style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+        body {overflow: hidden; width: 1280px; height: 720px; font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;}
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #0f172a;
+            border: 20px solid #f8fafc;
+        }
+        .frame-inner {
+            position: absolute;
+            inset: 20px;
+            border: 2px solid #38bdf8;
+            pointer-events: none;
+        }
+        .glow-effect {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+            z-index: 1;
+        }
+        .title-shadow {
+            text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    
+html {
+}</style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Decorative Frame -->
+<div class="frame-inner"></div>
+<div class="absolute top-10 left-10 w-12 h-12 border-t-4 border-l-4 border-amber-500"></div>
+<div class="absolute top-10 right-10 w-12 h-12 border-t-4 border-r-4 border-amber-500"></div>
+<div class="absolute bottom-10 left-10 w-12 h-12 border-b-4 border-l-4 border-amber-500"></div>
+<div class="absolute bottom-10 right-10 w-12 h-12 border-b-4 border-r-4 border-amber-500"></div>
+<!-- Background Glow -->
+<div class="glow-effect"></div>
+<!-- Content Content -->
+<div class="z-10 flex flex-col items-center text-center px-20">
+<div class="mb-6 flex items-center gap-4">
+<div class="h-px w-16 bg-sky-500/50"></div>
+<span class="text-sky-600 font-bold tracking-[0.3em] text-xl">CHURCH ELEMENTARY DEPT</span>
+<div class="h-px w-16 bg-sky-500/50"></div>
+</div>
+<h1 class="text-8xl font-black mb-8 title-shadow tracking-tight leading-tight italic text-slate-900">
+                봉동중앙교회 초등부<br/>
+<span class="text-sky-600">RPG 어드벤처</span>
+</h1>
+<div class="bg-white/80 backdrop-blur-sm border border-sky-200 px-8 py-4 mb-16 shadow-lg rounded-xl">
+<p class="text-2xl font-bold text-slate-700 tracking-wide">
+                    Season 1. <span class="text-sky-600">믿음의 갑주</span> - 말씀으로 성장하고 달란트를 모아라!
+                </p>
+</div>
+<!-- Start Button -->
+<div class="mt-4 group cursor-pointer">
+<div class="relative">
+<div class="absolute -inset-1 bg-sky-400 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+<div class="relative px-12 py-5 bg-sky-600 rounded-lg border-2 border-sky-400 shadow-xl flex items-center justify-center">
+<span class="text-3xl font-black text-white tracking-widest">모험 시작하기</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Subtle Bottom Text -->
+<div class="absolute bottom-12 z-10">
+<p class="text-slate-400 text-sm font-medium tracking-widest uppercase">Press Any Key to Start Your Journey</p>
+</div>
+</div>
+
+</body></html>

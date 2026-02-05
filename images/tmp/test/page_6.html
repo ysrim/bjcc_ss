@@ -1,0 +1,129 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script><style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700;900&display=swap');
+        body {overflow: hidden; font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            min-height: 720px;}
+        .slide-bg {
+            background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
+            width: 100%;
+            height: 100%;
+        }
+        .accent-border {
+            border-left: 6px solid #0284c7;
+        }
+        .step-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+        .quest-list-item {
+            background: #f1f5f9;
+            border-bottom: 1px solid #e2e8f0;
+        }
+    
+}</style>
+</head>
+<body>
+<div class="slide-bg p-10 flex flex-col justify-between">
+<!-- Header Section -->
+<header>
+<div class="flex items-center gap-4 mb-2">
+<span class="bg-sky-600 text-white px-3 py-1 rounded font-black text-sm uppercase tracking-tighter">Function 03</span>
+<h1 class="text-4xl font-black text-slate-900 tracking-tight">주요 기능 3 - 일일 미션과 퀘스트</h1>
+</div>
+<div class="accent-border pl-6 py-2">
+<p class="text-3xl font-bold text-slate-700">&#34;매일매일 말씀으로 무장하는 용사의 훈련&#34;</p>
+</div>
+</header>
+<!-- Main Content Grid -->
+<main class="grid grid-cols-2 gap-12 mt-4">
+<!-- Left Column: Mission Details -->
+<section class="flex flex-col gap-4">
+<div class="step-card p-5 rounded-xl">
+<h3 class="text-xl font-bold text-sky-600 mb-3 flex items-center gap-3">
+<i class="fas fa-scroll"></i> 데일리 미션 (Daily Mission)
+</h3>
+<div class="space-y-2">
+<div class="quest-list-item p-3 flex items-center justify-between rounded">
+<span class="text-lg">성경 1장씩 읽기 (매일)</span>
+<span class="text-sky-600 font-bold">+10 EXP</span>
+</div>
+<div class="quest-list-item p-3 flex items-center justify-between rounded">
+<span class="text-lg">오늘의 말씀 암송하기</span>
+<span class="text-sky-600 font-bold">+20 EXP</span>
+</div>
+</div>
+</div>
+<div class="step-card p-5 rounded-xl">
+<h3 class="text-xl font-bold text-sky-600 mb-3 flex items-center gap-3">
+<i class="fas fa-graduation-cap"></i> 기대 효과 (Learning Effect)
+</h3>
+<ul class="space-y-2 text-lg">
+<li class="flex items-start gap-3">
+<i class="fas fa-check-circle text-sky-500 mt-1"></i>
+<span>자연스러운 성경 읽기 습관 유도</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="fas fa-check-circle text-sky-500 mt-1"></i>
+<span>말씀 중심의 일상 생활 패턴 구축</span>
+</li>
+</ul>
+</div>
+</section>
+<!-- Right Column: Visual Process -->
+<section class="flex flex-col justify-center">
+<div class="bg-white p-6 rounded-2xl border border-sky-100 shadow-xl">
+<h3 class="text-2xl font-black text-center text-slate-800 mb-6">보상 프로세스 (Reward Process)</h3>
+<div class="flex flex-col gap-3">
+<!-- Step 1 -->
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-full bg-sky-600 text-white flex items-center justify-center text-2xl font-black shadow-lg shadow-sky-200">01</div>
+<div class="flex-1 p-3 bg-sky-50 rounded-lg border border-sky-100">
+<span class="font-bold text-xl block text-slate-800">미션 실천</span>
+<span class="text-slate-500">정해진 퀘스트를 성실히 수행</span>
+</div>
+</div>
+<!-- Arrow -->
+<div class="flex justify-center w-16 opacity-30">
+<i class="fas fa-chevron-down"></i>
+</div>
+<!-- Step 2 -->
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-full bg-sky-500 text-white flex items-center justify-center text-2xl font-black shadow-lg shadow-sky-200">02</div>
+<div class="flex-1 p-3 bg-sky-50 rounded-lg border border-sky-100">
+<span class="font-bold text-xl block text-slate-800">승인 요청</span>
+<span class="text-slate-500">웹 서비스를 통한 수행 인증</span>
+</div>
+</div>
+<!-- Arrow -->
+<div class="flex justify-center w-16 opacity-30">
+<i class="fas fa-chevron-down"></i>
+</div>
+<!-- Step 3 -->
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-full bg-amber-400 text-amber-950 flex items-center justify-center text-2xl font-black shadow-lg shadow-amber-100">03</div>
+<div class="flex-1 p-3 bg-amber-50 rounded-lg border border-amber-200">
+<span class="font-bold text-xl block text-amber-800">보상 획득</span>
+<span class="text-amber-700">경험치(EXP) 및 달란트 즉시 지급</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="mt-4 pt-4 border-t border-sky-100 flex justify-between items-center text-slate-400 text-sm">
+<span>BONGDONG JOONGANG CHURCH - ELEMENTARY RPG ADVENTURE</span>
+<span class="italic font-serif">&#34;Equipping the next generation of faith warriors&#34;</span>
+</footer>
+</div>
+
+</body></html>
