@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>티처 모드 2026</title>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="stylesheet" as="style" crossorigin
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"/>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+
+        :root {
+            --primary: #3b82f6; /* 2026 Vivid Blue */
+            --primary-dark: #2563eb;
+            --glass-bg: rgba(255, 255, 255, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.6);
+            --surface: #f8fafc;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            opacity: 0;
+            animation: fadeInBody 0.3s ease-in forwards;
+        }
+
+        @keyframes fadeInBody {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* 스크롤바 숨김 */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* 2026 트렌드: Super Ellipse (매우 둥근 모서리) */
+        .card-rounded {
+            border-radius: 1.75rem;
+        }
+
+        .btn-rounded {
+            border-radius: 1rem;
+        }
+
+        /* 글래스모피즘 효과 */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        /* 2026 트렌드: Soft Shadows (부드럽고 퍼지는 그림자) */
+        .soft-shadow {
+            box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.15);
+        }
+
+        /* 햅틱 터치 애니메이션 */
+        .active-scale:active {
+            transform: scale(0.96);
+            transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* 그라데이션 텍스트 */
+        .text-gradient {
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* 애니메이션 */
+        @keyframes slideUpFade {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-enter {
+            animation: slideUpFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* 칩 버튼 스타일 */
+        .chip {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: white;
+            border: 1px solid #e2e8f0;
+            color: #64748b;
+        }
+
+        .chip.active {
+            background: #0f172a; /* 2026 트렌드: 고대비 블랙 포인트 */
+            color: white;
+            border-color: #0f172a;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+        }
+
+        .hidden-section {
+            display: none;
+        }
+
+        /* 플로팅 네비게이션 바 */
+        .floating-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 하단 네비게이션 도크 전용 스타일 */
+        .nav-dock {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 90px;
+            background: rgba(255, 255, 255, 0.94); /* 더 짙은 우유빛 유리 */
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding-bottom: env(safe-area-inset-bottom);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+            flex: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8; /* 기본 아이콘 색상 */
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* 활성화 시 아이콘 뒤에 나타나는 부드러운 배경(Pill) */
+        .nav-active-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -80%);
+            width: 0;
+            height: 34px;
+            background: #eff6ff; /* 연한 블루 배경 */
+            border-radius: 20px;
+            z-index: -1;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+        }
+
+        .nav-item.active {
+            color: #2563eb; /* 활성화 시 딥 블루 */
+        }
+
+        .nav-item.active .nav-active-bg {
+            width: 60px;
+            opacity: 1;
+        }
+
+        .nav-item.active i {
+            transform: translateY(-2px);
+        }
+
+        .nav-label {
+            font-size: 10px;
+            font-weight: 700;
+            margin-top: 4px;
+            letter-spacing: -0.02em;
+        }
+
+        /* 알림 뱃지 스타일 */
+        .nav-badge {
+            position: absolute;
+            top: 15px;
+            right: calc(50% - 20px);
+            background: #ef4444;
+            color: white;
+            font-size: 9px;
+            font-weight: 800;
+            padding: 2px 5px;
+            border-radius: 10px;
+            border: 2px solid white;
+        }
+
+        /* [수정] 토스트 알림 스타일 최적화 */
+        #toast {
+            position: fixed;
+            top: 20px; /* 조금 더 여유 있게 내림 */
+            left: 50%;
+            transform: translateX(-50%) translateY(-100px);
+            background: rgba(15, 23, 42, 0.95); /* 배경을 살짝 더 진하게 */
+            color: white;
+            padding: 14px 32px; /* 좌우 패딩을 늘려 너비 확보 */
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 15px; /* 가독성을 위해 폰트 살짝 키움 */
+            z-index: 1000;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(12px); /* 블러 효과 강화 */
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+
+            /* 너비 관련 추가 설정 */
+            min-width: 280px;
+            max-width: 90%;
+            text-align: center;
+            white-space: nowrap; /* 글자가 밑으로 떨어지지 않게 고정 */
+            border: 1px solid rgba(255, 255, 255, 0.1); /* 테두리 살짝 추가 */
+        }
+
+        #toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden bg-slate-50">
+<div id="toast">인증에 성공했습니다. 잠시만 기다려주세요! 🛡️</div>
+<header class="fixed top-0 left-0 right-0 z-40 pt-safe-top transition-all duration-300">
+    <div class="px-6 py-4 flex justify-between items-center glass-panel mx-4 mt-2 card-rounded !rounded-[20px]">
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shadow-sm">
+                <i class="fas fa-shield-alt text-sm"></i>
+            </div>
+            <h1 class="text-base font-bold text-slate-800 tracking-tight">Teacher Mode</h1>
+        </div>
+
+        <button onclick="logout()"
+                class="active-scale w-9 h-9 rounded-full bg-red-50 text-red-500 flex items-center justify-center hover:bg-red-100 transition shadow-sm border border-red-100">
+            <i class="fas fa-sign-out-alt text-sm"></i>
+        </button>
+    </div>
+</header>
+
+<main id="main-content" class="flex-1 overflow-y-auto px-4 pt-24 pb-32 space-y-6 no-scrollbar w-full max-w-lg mx-auto">
+
+    <section id="tab-home" class="section-content animate-enter">
+
+        <div class="mb-8 px-1 animate-enter">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight flex items-center gap-3">
+                        믿음반 모험 브리핑
+                        <span class="text-[12px] font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-xl border border-blue-100 uppercase tracking-wider">1월 4주</span>
+                    </h2>
+                    <p class="text-sm text-slate-400 mt-2 font-medium">오늘의 왕국 활동 현황을 확인하세요.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+            <div class="col-span-2 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-[2.25rem] p-7 text-white shadow-2xl shadow-blue-500/20 relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
+
+                <div class="relative z-10 flex justify-between items-center">
+                    <div>
+                        <div class="text-blue-100 text-xs font-bold uppercase tracking-widest mb-2 opacity-90">
+                            출석현황(02.01)
+                        </div>
+                        <div class="text-4xl font-black tracking-tighter">18<span
+                                class="text-base opacity-70 font-medium ml-1">/ 21명</span></div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-blue-100 text-xs font-bold uppercase tracking-widest mb-2 opacity-90">누적 달란트
+                        </div>
+                        <div class="text-2xl font-black tracking-tighter">1,800,000 <span
+                                class="text-xs opacity-70">G</span></div>
+                    </div>
+                </div>
+
+                <div class="mt-7 pt-6 border-t border-white/15 grid grid-cols-4 gap-2">
+                    <div class="text-center">
+                        <div class="text-[11px] text-blue-100 font-bold opacity-80 uppercase mb-1">대기</div>
+                        <div class="text-base font-black text-yellow-300">3</div>
+                    </div>
+                    <div class="text-center border-l border-white/15">
+                        <div class="text-[11px] text-blue-100 font-bold opacity-80 uppercase mb-1">출석률</div>
+                        <div class="text-base font-black">85%</div>
+                    </div>
+                    <div class="text-center border-l border-white/15">
+                        <div class="text-[11px] text-blue-100 font-bold opacity-80 uppercase mb-1">누적</div>
+                        <div class="text-base font-black">92%</div>
+                    </div>
+                    <div class="text-center border-l border-white/15">
+                        <div class="text-[11px] text-blue-100 font-bold opacity-80 uppercase mb-1">장결</div>
+                        <div class="text-base font-black text-red-300">1</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-6 animate-enter" style="animation-delay: 0.1s;">
+            <h3 class="font-bold text-slate-800 text-lg mb-3 px-2 flex items-center">
+                <i class="fas fa-bullhorn text-blue-500 mr-2"></i> 오늘의 메시지 설정
+            </h3>
+            <div class="bg-white card-rounded p-5 shadow-sm border border-slate-100">
+                <p class="text-[10px] font-bold text-slate-400 uppercase mb-3 tracking-widest">Student App Banner
+                    Preview</p>
+
+                <div id="banner-preview"
+                     class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-4 mb-4 text-white shadow-lg shadow-blue-200 relative overflow-hidden">
+                    <div class="absolute -right-4 -top-4 w-16 h-16 bg-white opacity-10 rounded-full"></div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-md">
+                            <i class="fas fa-comment-dots text-white"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p id="preview-text" class="text-sm font-bold leading-snug">오늘은 성경 읽기 퀘스트가 두 배! 모두 화이팅하세요!
+                                ⚔️</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex gap-2 items-stretch">
+    <textarea id="message-input" rows="2"
+              oninput="updatePreview(this)"
+              placeholder="학생들에게 보낼 메시지 입력..."
+              class="flex-1 bg-slate-50 border border-slate-200 rounded-2xl p-3 text-sm focus:bg-white focus:ring-2 focus:ring-blue-100 focus:border-blue-400 transition-all outline-none resize-none leading-tight"></textarea>
+
+                    <button onclick="saveTodayMessage()"
+                            class="w-14 bg-blue-600 text-white rounded-2xl shadow-lg shadow-blue-500/20 active-scale transition-all flex flex-col items-center justify-center gap-1 shrink-0">
+                        <i class="fas fa-paper-plane text-sm"></i>
+                        <span class="text-[9px] font-bold">게시</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="mt-8 animate-enter" style="animation-delay: 0.2s;">
+            <h3 class="font-bold text-slate-800 text-lg mb-4 px-2 flex items-center justify-between">
+                <div class="flex items-center">
+                    <i class="fas fa-comment-alt text-blue-500 mr-2"></i> 길드 라운지
+                </div>
+                <span class="text-[10px] text-slate-400 font-medium">최근 게시글</span>
+            </h3>
+
+            <div class="bg-white card-rounded shadow-sm border border-slate-100 overflow-hidden">
+                <div id="comment-list" class="divide-y divide-slate-50 max-h-[400px] overflow-y-auto no-scrollbar">
+
+                    <div class="p-4 flex gap-3 hover:bg-slate-50/50 transition-colors comment-item">
+                        <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Felix"
+                             class="w-10 h-10 rounded-2xl bg-slate-100 shrink-0 border border-slate-100">
+                        <div class="flex-1 min-w-0">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-sm font-bold text-slate-800">김용사</span>
+                                    <span class="text-[10px] text-slate-400 ml-2">10:42 AM</span>
+                                </div>
+                                <button onclick="deleteComment(this)"
+                                        class="text-red-500 hover:text-red-700 hover:bg-red-50 transition-all p-1.5 rounded-lg -mr-1">
+                                    <i class="fas fa-times text-sm"></i>
+                                </button>
+                            </div>
+                            <p class="text-sm text-slate-600 mt-1 leading-relaxed">선생님 오늘 간식 뭐예요? 빨리 가고 싶어요! 🍖</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 flex gap-3 bg-blue-50/30 hover:bg-blue-50/50 transition-colors comment-item">
+                        <div class="w-10 h-10 rounded-2xl bg-blue-600 flex items-center justify-center text-white shrink-0 shadow-sm">
+                            <i class="fas fa-user-tie text-sm"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-sm font-bold text-blue-700">김선생님</span>
+                                    <span class="bg-blue-100 text-blue-600 text-[9px] px-1.5 py-0.5 rounded ml-2 font-bold uppercase">Admin</span>
+                                    <span class="text-[10px] text-slate-400 ml-2">10:45 AM</span>
+                                </div>
+                                <button onclick="deleteComment(this)"
+                                        class="text-red-500 hover:text-red-700 hover:bg-red-50 transition-all p-1.5 rounded-lg -mr-1">
+                                    <i class="fas fa-times text-sm"></i>
+                                </button>
+                            </div>
+                            <p class="text-sm text-slate-700 mt-1 leading-relaxed font-medium">오늘 간식은 떡볶이와 튀김이야! 늦지 않게
+                                와~ 😊</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="p-3 bg-slate-50 border-t border-slate-100">
+                    <form onsubmit="event.preventDefault(); postComment();" class="relative flex gap-2">
+                        <input id="comment-input" type="text" placeholder="한마디 남기기..."
+                               class="flex-1 bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-blue-100 transition-all outline-none">
+                        <button type="submit"
+                                class="w-12 h-12 bg-slate-900 text-white rounded-xl flex items-center justify-center active-scale transition shadow-lg shrink-0">
+                            <i class="fas fa-paper-plane text-xs"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tab-attendance" class="section-content hidden-section animate-enter">
+        <h2 class="text-2xl font-bold text-slate-800 mb-5 px-1 tracking-tight">출석 관리</h2>
+
+        <div class="flex gap-2 mb-6 overflow-x-auto no-scrollbar px-1 py-1">
+            <button onclick="selectMonth(this)"
+                    class="chip active px-4 py-2 rounded-full text-sm font-semibold shrink-0">1월
+            </button>
+            <button onclick="selectMonth(this)" class="chip px-4 py-2 rounded-full text-sm font-semibold shrink-0">2월
+            </button>
+            <button onclick="selectMonth(this)" class="chip px-4 py-2 rounded-full text-sm font-semibold shrink-0">3월
+            </button>
+            <button onclick="selectMonth(this)" class="chip px-4 py-2 rounded-full text-sm font-semibold shrink-0">4월
+            </button>
+        </div>
+
+        <div class="bg-white p-1.5 rounded-2xl shadow-sm border border-slate-100 grid grid-cols-4 gap-1 mb-6">
+            <button class="py-2.5 rounded-xl text-xs font-medium text-slate-400 hover:bg-slate-50 transition">1주
+            </button>
+            <button class="py-2.5 rounded-xl text-xs font-medium text-slate-400 hover:bg-slate-50 transition">2주
+            </button>
+            <button class="py-2.5 rounded-xl text-xs font-medium text-slate-400 hover:bg-slate-50 transition">3주
+            </button>
+            <button class="py-2.5 rounded-xl text-xs font-bold text-slate-800 bg-slate-100 shadow-sm transition">4주
+            </button>
+        </div>
+
+        <div class="flex gap-4 mb-4 items-center">
+            <button onclick="switchAttList('pending')" id="btn-att-pending"
+                    class="text-lg font-bold text-slate-800 border-b-2 border-slate-800 pb-1 transition-all">승인 대기 <span
+                    class="text-blue-500 text-sm align-top">2</span></button>
+            <button onclick="switchAttList('complete')" id="btn-att-complete"
+                    class="text-lg font-bold text-slate-300 pb-1 hover:text-slate-500 transition-all">완료됨
+            </button>
+        </div>
+
+        <div id="list-att-pending" class="space-y-3">
+            <div class="bg-white p-5 card-rounded shadow-sm border border-slate-100 flex items-center justify-between row-item">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 font-black text-lg">
+                        김
+                    </div>
+                    <div>
+                        <div class="font-bold text-slate-800">김철수</div>
+                        <div class="text-xs text-slate-400 mt-0.5 font-medium">09:40 QR 스캔</div>
+                    </div>
+                </div>
+                <div class="flex gap-2">
+                    <button onclick="handleAction(this, 'reject')"
+                            class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center active-scale transition">
+                        <i class="fas fa-times"></i></button>
+                    <button onclick="handleAction(this, 'approve')"
+                            class="w-10 h-10 rounded-full bg-blue-600 text-white shadow-lg shadow-blue-500/30 flex items-center justify-center active-scale transition">
+                        <i class="fas fa-check"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div id="list-att-complete" class="hidden space-y-3">
+            <div class="bg-white/60 p-5 card-rounded border border-slate-100 flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-400 font-bold">
+                        박
+                    </div>
+                    <div>
+                        <div class="font-bold text-slate-400">박성실</div>
+                        <div class="text-xs text-green-600 font-bold mt-0.5">09:10 완료</div>
+                    </div>
+                </div>
+                <i class="fas fa-check-circle text-green-500 text-xl"></i>
+            </div>
+        </div>
+    </section>
+
+    <section id="tab-quest" class="section-content hidden-section animate-enter">
+        <h2 class="text-2xl font-bold text-slate-800 mb-5 px-1 tracking-tight">퀘스트 요청</h2>
+
+        <div class="flex gap-2 mb-6 overflow-x-auto no-scrollbar pb-2">
+            <button onclick="filterQuest('all')" id="btn-all"
+                    class="chip active px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap">전체
+            </button>
+            <button onclick="filterQuest('daily')" id="btn-daily"
+                    class="chip px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap">일일
+            </button>
+            <button onclick="filterQuest('sunday')" id="btn-sunday"
+                    class="chip px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap">주일
+            </button>
+            <button onclick="filterQuest('special')" id="btn-special"
+                    class="chip px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap">특별
+            </button>
+        </div>
+
+        <div id="quest-list" class="space-y-4">
+            <div class="quest-item bg-white p-5 card-rounded shadow-sm border border-slate-100 flex flex-col animate-enter"
+                 data-type="daily">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <span class="inline-block px-2 py-0.5 rounded-md bg-blue-50 text-blue-600 text-[10px] font-bold mb-2 uppercase tracking-wider">Daily Mission</span>
+                        <h3 class="font-bold text-slate-800 text-lg leading-tight">오늘의 성경 한 장 읽기 📖</h3>
+                        <div class="flex items-center gap-2 mt-1">
+                            <span class="text-xs text-slate-400 font-medium">요청자: 김용사 학생</span>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-sm font-extrabold text-amber-500 bg-amber-50 px-3 py-1.5 rounded-lg border border-amber-100">
+                            500 G
+                        </div>
+                    </div>
+
+                </div>
+                <div class="flex gap-3">
+                    <button onclick="handleAction(this, 'reject')"
+                            class="flex-1 py-3.5 rounded-xl bg-slate-50 text-slate-500 text-xs font-bold active-scale transition-colors">
+                        반려
+                    </button>
+                    <button onclick="handleAction(this, 'approve')"
+                            class="flex-1 py-3.5 rounded-xl bg-blue-600 text-white text-xs font-bold shadow-lg shadow-blue-500/20 active-scale transition-colors">
+                        승인 및 지급
+                    </button>
+                </div>
+            </div>
+
+            <div class="quest-item bg-white p-5 card-rounded shadow-sm border border-slate-100 flex flex-col animate-enter"
+                 data-type="daily" style="animation-delay: 0.1s;">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <span class="inline-block px-2 py-0.5 rounded-md bg-blue-50 text-blue-600 text-[10px] font-bold mb-2 uppercase tracking-wider">Daily Mission</span>
+                        <h3 class="font-bold text-slate-800 text-lg leading-tight">부모님 심부름 1회 완료 🛡️</h3>
+                        <div class="flex items-center gap-2 mt-1">
+                            <span class="text-xs text-slate-400 font-medium">요청자: 이마법 학생</span>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-sm font-extrabold text-amber-500 bg-amber-50 px-3 py-1.5 rounded-lg border border-amber-100">
+                            300 G
+                        </div>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <button onclick="handleAction(this, 'reject')"
+                            class="flex-1 py-3.5 rounded-xl bg-slate-50 text-slate-500 text-xs font-bold active-scale">
+                        반려
+                    </button>
+                    <button onclick="handleAction(this, 'approve')"
+                            class="flex-1 py-3.5 rounded-xl bg-blue-600 text-white text-xs font-bold shadow-lg shadow-blue-500/20 active-scale">
+                        승인 및 지급
+                    </button>
+                </div>
+            </div>
+
+            <div class="quest-item bg-white p-5 card-rounded shadow-sm border border-slate-100 flex flex-col animate-enter"
+                 data-type="daily" style="animation-delay: 0.15s;">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <span class="inline-block px-2 py-0.5 rounded-md bg-blue-50 text-blue-600 text-[10px] font-bold mb-2 uppercase tracking-wider">Daily Mission</span>
+                        <h3 class="font-bold text-slate-800 text-lg leading-tight">새벽 큐티 출석 인증 ☀️</h3>
+                        <div class="flex items-center gap-2 mt-1">
+                            <span class="text-xs text-slate-400 font-medium">요청자: 박궁수 학생</span>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-sm font-extrabold text-amber-500 bg-amber-50 px-3 py-1.5 rounded-lg border border-amber-100">
+                            400 G
+                        </div>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <button onclick="handleAction(this, 'reject')"
+                            class="flex-1 py-3.5 rounded-xl bg-slate-50 text-slate-500 text-xs font-bold active-scale">
+                        반려
+                    </button>
+                    <button onclick="handleAction(this, 'approve')"
+                            class="flex-1 py-3.5 rounded-xl bg-blue-600 text-white text-xs font-bold shadow-lg shadow-blue-500/20 active-scale">
+                        승인 및 지급
+                    </button>
+                </div>
+            </div>
+
+            <div class="quest-item bg-white p-5 card-rounded shadow-sm border border-slate-100 flex flex-col animate-enter"
+                 data-type="daily" style="animation-delay: 0.2s;">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <span class="inline-block px-2 py-0.5 rounded-md bg-blue-50 text-blue-600 text-[10px] font-bold mb-2 uppercase tracking-wider">Daily Mission</span>
+                        <h3 class="font-bold text-slate-800 text-lg leading-tight">친구에게 칭찬 한마디 📣</h3>
+                        <div class="flex items-center gap-2 mt-1">
+                            <span class="text-xs text-slate-400 font-medium">요청자: 최도적 학생</span>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-sm font-extrabold text-amber-500 bg-amber-50 px-3 py-1.5 rounded-lg border border-amber-100">
+                            200 G
+                        </div>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <button onclick="handleAction(this, 'reject')"
+                            class="flex-1 py-3.5 rounded-xl bg-slate-50 text-slate-500 text-xs font-bold active-scale">
+                        반려
+                    </button>
+                    <button onclick="handleAction(this, 'approve')"
+                            class="flex-1 py-3.5 rounded-xl bg-blue-600 text-white text-xs font-bold shadow-lg shadow-blue-500/20 active-scale">
+                        승인 및 지급
+                    </button>
+                </div>
+            </div>
+
+            <div class="quest-item bg-white p-5 card-rounded shadow-sm border border-slate-100 flex flex-col animate-enter"
+                 data-type="daily" style="animation-delay: 0.25s;">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <span class="inline-block px-2 py-0.5 rounded-md bg-blue-50 text-blue-600 text-[10px] font-bold mb-2 uppercase tracking-wider">Daily Mission</span>
+                        <h3 class="font-bold text-slate-800 text-lg leading-tight">간식 안 남기고 다 먹기 🍎</h3>
+                        <div class="flex items-center gap-2 mt-1">
+                            <span class="text-xs text-slate-400 font-medium">요청자: 정전사 학생</span>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-sm font-extrabold text-amber-500 bg-amber-50 px-3 py-1.5 rounded-lg border border-amber-100">
+                            300 G
+                        </div>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <button onclick="handleAction(this, 'reject')"
+                            class="flex-1 py-3.5 rounded-xl bg-slate-50 text-slate-500 text-xs font-bold active-scale">
+                        반려
+                    </button>
+                    <button onclick="handleAction(this, 'approve')"
+                            class="flex-1 py-3.5 rounded-xl bg-blue-600 text-white text-xs font-bold shadow-lg shadow-blue-500/20 active-scale">
+                        승인 및 지급
+                    </button>
+                </div>
+            </div>
+
+            <div class="quest-item bg-white p-5 card-rounded shadow-sm border border-slate-100 flex flex-col animate-enter"
+                 data-type="daily" style="animation-delay: 0.3s;">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <span class="inline-block px-2 py-0.5 rounded-md bg-blue-50 text-blue-600 text-[10px] font-bold mb-2 uppercase tracking-wider">Daily Mission</span>
+                        <h3 class="font-bold text-slate-800 text-lg leading-tight">오늘의 감사 일기 작성 ✍️</h3>
+                        <div class="flex items-center gap-2 mt-1">
+                            <span class="text-xs text-slate-400 font-medium">요청자: 한용사 학생</span>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-sm font-extrabold text-amber-500 bg-amber-50 px-3 py-1.5 rounded-lg border border-amber-100">
+                            400 G
+                        </div>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <button onclick="handleAction(this, 'reject')"
+                            class="flex-1 py-3.5 rounded-xl bg-slate-50 text-slate-500 text-xs font-bold active-scale">
+                        반려
+                    </button>
+                    <button onclick="handleAction(this, 'approve')"
+                            class="flex-1 py-3.5 rounded-xl bg-blue-600 text-white text-xs font-bold shadow-lg shadow-blue-500/20 active-scale">
+                        승인 및 지급
+                    </button>
+                </div>
+            </div>
+
+            <div class="quest-item bg-indigo-50/50 p-5 card-rounded shadow-sm border border-indigo-100 flex flex-col animate-enter"
+                 data-type="special" style="animation-delay: 0.35s;">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <span class="inline-block px-2 py-0.5 rounded-md bg-indigo-600 text-white text-[10px] font-bold mb-2 uppercase tracking-widest shadow-sm">LEGENDARY QUEST</span>
+                        <h3 class="font-bold text-slate-900 text-lg leading-tight">새 친구 초청 (보스 레이드) ⚔️</h3>
+                        <div class="flex items-center gap-2 mt-1">
+                            <span class="text-xs text-indigo-600 font-bold">전설 등급 미션 달성</span>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-sm font-black text-indigo-700 bg-white px-3 py-1.5 rounded-lg border border-indigo-200 shadow-sm">
+                            3,000 G
+                        </div>
+                    </div>
+                </div>
+                <p class="text-xs text-slate-500 mb-4 bg-white/50 p-3 rounded-xl border border-indigo-50">"새로운 용사를 왕국으로
+                    데려왔습니다! 파티원 추가 보상 승인을 요청합니다."</p>
+                <div class="flex gap-3">
+                    <button onclick="handleAction(this, 'reject')"
+                            class="flex-1 py-3.5 rounded-xl bg-white text-slate-500 text-xs font-bold border border-slate-200 active-scale">
+                        검토 필요
+                    </button>
+                    <button onclick="handleAction(this, 'approve')"
+                            class="flex-1 py-3.5 rounded-xl bg-indigo-600 text-white text-xs font-bold shadow-xl shadow-indigo-200 active-scale">
+                        보상 일괄 지급
+                    </button>
+                </div>
+            </div>
+
+            <div class="quest-item bg-purple-50/50 p-5 card-rounded shadow-sm border border-purple-100 flex flex-col animate-enter"
+                 data-type="special" style="animation-delay: 0.4s;">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <span class="inline-block px-2 py-0.5 rounded-md bg-purple-600 text-white text-[10px] font-bold mb-2 uppercase tracking-widest shadow-sm">SPECIAL EVENT</span>
+                        <h3 class="font-bold text-slate-900 text-lg leading-tight">성경 암송왕 골든벨 우승 🏆</h3>
+                        <div class="flex items-center gap-2 mt-1">
+                            <span class="text-xs text-purple-600 font-bold">겨울 수련회 특별 미션</span>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-sm font-black text-purple-700 bg-white px-3 py-1.5 rounded-lg border border-purple-200 shadow-sm">
+                            5,000 G
+                        </div>
+                    </div>
+                </div>
+                <div class="flex gap-3 mt-2">
+                    <button onclick="handleAction(this, 'reject')"
+                            class="flex-1 py-3.5 rounded-xl bg-white text-slate-500 text-xs font-bold border border-slate-200 active-scale">
+                        반려
+                    </button>
+                    <button onclick="handleAction(this, 'approve')"
+                            class="flex-1 py-3.5 rounded-xl bg-purple-600 text-white text-xs font-bold shadow-xl shadow-purple-200 active-scale">
+                        전설 보상 수여
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="quest-empty" class="hidden flex flex-col items-center justify-center py-20 opacity-50">
+            <i class="fas fa-inbox text-4xl text-slate-300 mb-3"></i>
+            <p class="text-slate-400 font-medium text-sm">대기 중인 퀘스트가 없습니다.</p>
+        </div>
+    </section>
+
+    <section id="tab-guild" class="section-content hidden-section animate-enter">
+        <h2 class="text-2xl font-bold text-slate-800 mb-5 px-1 tracking-tight">길드 멤버</h2>
+
+        <div class="bg-white card-rounded shadow-sm border border-slate-100 overflow-hidden">
+            <div class="bg-slate-50/50 p-4 border-b border-slate-100 text-[10px] font-bold text-slate-400 uppercase tracking-widest flex justify-between">
+                <span>Member Info</span>
+                <span>Status</span>
+            </div>
+
+            <div class="divide-y divide-slate-50">
+                <div class="p-4 flex items-center justify-between hover:bg-slate-50 transition active:bg-slate-100 cursor-pointer">
+                    <div class="flex items-center gap-3">
+                        <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Felix"
+                             class="w-10 h-10 rounded-xl bg-slate-100">
+                        <div>
+                            <div class="font-bold text-slate-800 text-sm">김용사</div>
+                            <div class="text-[11px] text-blue-500 font-bold bg-blue-50 px-1.5 py-0.5 rounded inline-block mt-0.5">
+                                Warrior Lv.10
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="font-black text-slate-800 text-sm">1,200 G</div>
+                    </div>
+                </div>
+                <div class="p-4 flex items-center justify-between hover:bg-slate-50 transition active:bg-slate-100 cursor-pointer">
+                    <div class="flex items-center gap-3">
+                        <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Annie"
+                             class="w-10 h-10 rounded-xl bg-slate-100">
+                        <div>
+                            <div class="font-bold text-slate-800 text-sm">이성직</div>
+                            <div class="text-[11px] text-purple-500 font-bold bg-purple-50 px-1.5 py-0.5 rounded inline-block mt-0.5">
+                                Priest Lv.8
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="font-black text-slate-800 text-sm">850 G</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<nav class="nav-dock">
+    <button onclick="switchTab('home')" class="nav-item active">
+        <div class="nav-active-bg"></div>
+        <i class="fas fa-home text-xl"></i>
+        <span class="nav-label">홈</span>
+    </button>
+
+    <button onclick="switchTab('attendance')" class="nav-item">
+        <div class="nav-active-bg"></div>
+        <i class="far fa-id-card text-xl"></i>
+        <span class="nav-label">출석부</span>
+    </button>
+
+    <button onclick="switchTab('quest')" class="nav-item">
+        <div class="nav-active-bg"></div>
+        <i class="far fa-check-circle text-xl"></i>
+        <span class="nav-badge">2</span>
+        <span class="nav-label">퀘스트</span>
+    </button>
+
+    <button onclick="switchTab('guild')" class="nav-item">
+        <div class="nav-active-bg"></div>
+        <i class="far fa-user-circle text-xl"></i>
+        <span class="nav-label">길드원</span>
+    </button>
+</nav>
+
+<div id="settings-modal" class="fixed inset-0 z-[60] hidden">
+    <div class="absolute inset-0 bg-black/20 backdrop-blur-sm transition-opacity" onclick="toggleSettings(false)"></div>
+    <div class="absolute bottom-0 left-0 right-0 bg-white rounded-t-[2.5rem] p-8 animate-enter shadow-2xl">
+        <div class="w-12 h-1.5 bg-slate-200 rounded-full mx-auto mb-8"></div>
+
+        <div class="flex items-center gap-4 mb-8">
+            <div class="w-16 h-16 rounded-full bg-slate-900 text-white flex items-center justify-center text-2xl shadow-xl">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <div>
+                <h2 class="text-xl font-bold text-slate-800">김선생님</h2>
+                <p class="text-sm text-slate-400 font-medium">Master Admin</p>
+            </div>
+        </div>
+
+        <div class="space-y-4">
+            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                <label class="block text-xs font-bold text-slate-400 mb-2 uppercase">Security</label>
+                <input type="password" placeholder="새 비밀번호 변경"
+                       class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-blue-500 transition">
+            </div>
+
+            <button class="w-full py-4 bg-slate-900 text-white rounded-2xl font-bold text-sm shadow-lg active-scale">
+                저장하기
+            </button>
+            <button onclick="logout()" class="w-full py-4 text-red-500 font-bold text-sm active-scale">
+                로그아웃
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // 기본 로직 유지
+    function switchTab(tabName) {
+        // 섹션 전환
+        document.querySelectorAll('.section-content').forEach(el => el.classList.add('hidden-section'));
+        const target = document.getElementById('tab-' + tabName);
+        target.classList.remove('hidden-section');
+
+        // 애니메이션 재실행을 위해 클래스 리셋
+        target.classList.remove('animate-enter');
+        void target.offsetWidth; // trigger reflow
+        target.classList.add('animate-enter');
+
+        // 네비게이션 상태 업데이트
+        document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+
+        // 인덱스 매핑 (단순화)
+        const map = {'home': 0, 'attendance': 1, 'quest': 2, 'guild': 3};
+        const navItems = document.querySelectorAll('.nav-item');
+        if (navItems[map[tabName]]) navItems[map[tabName]].classList.add('active');
+
+        document.getElementById('main-content').scrollTop = 0;
+    }
+
+    function switchAttList(type) {
+        const btnPending = document.getElementById('btn-att-pending');
+        const btnComplete = document.getElementById('btn-att-complete');
+        const listPending = document.getElementById('list-att-pending');
+        const listComplete = document.getElementById('list-att-complete');
+
+        if (type === 'pending') {
+            btnPending.className = "text-lg font-bold text-slate-800 border-b-2 border-slate-800 pb-1 transition-all";
+            btnComplete.className = "text-lg font-bold text-slate-300 pb-1 hover:text-slate-500 transition-all";
+            btnPending.innerHTML = '승인 대기 <span class="text-blue-500 text-sm align-top">2</span>';
+            listPending.classList.remove('hidden');
+            listComplete.classList.add('hidden');
+        } else {
+            btnComplete.className = "text-lg font-bold text-slate-800 border-b-2 border-slate-800 pb-1 transition-all";
+            btnPending.className = "text-lg font-bold text-slate-300 pb-1 hover:text-slate-500 transition-all";
+            // 숫자 제거 혹은 스타일 변경
+            btnPending.innerHTML = '승인 대기';
+            listComplete.classList.remove('hidden');
+            listPending.classList.add('hidden');
+        }
+    }
+
+    // 기존 헬퍼 함수들 유지
+    function filterQuest(type) {
+        document.querySelectorAll('#tab-quest .chip').forEach(btn => btn.classList.remove('active'));
+        document.getElementById('btn-' + type).classList.add('active');
+
+        const listArea = document.getElementById('quest-list');
+        const items = document.querySelectorAll('.quest-item');
+        const emptyArea = document.getElementById('quest-empty');
+
+        let visibleCount = 0;
+        items.forEach(item => {
+            if (type === 'all' || item.getAttribute('data-type') === type) {
+                item.classList.remove('hidden');
+                visibleCount++;
+            } else {
+                item.classList.add('hidden');
+            }
+        });
+
+        if (visibleCount > 0) {
+            listArea.classList.remove('hidden');
+            emptyArea.classList.add('hidden');
+        } else {
+            listArea.classList.add('hidden');
+            emptyArea.classList.remove('hidden');
+        }
+    }
+
+    function sendMessage() {
+        const input = document.getElementById('chat-input');
+        if (!input.value.trim()) return;
+
+        const chatList = document.getElementById('chat-list');
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'flex gap-3 items-end flex-row-reverse animate-enter';
+        msgDiv.innerHTML = `
+                <div class="w-8 h-8 rounded-xl bg-slate-800 flex items-center justify-center text-white text-xs shrink-0"><i class="fas fa-user-tie"></i></div>
+                <div class="flex-1 text-right">
+                    <div class="bg-blue-600 text-white px-4 py-3 rounded-2xl rounded-br-none text-sm text-left shadow-md inline-block max-w-[90%]">
+                        ${input.value}
+                    </div>
+                    <div class="text-[10px] text-slate-300 mt-1 mr-1">방금 전</div>
+                </div>
+            `;
+        chatList.appendChild(msgDiv);
+        input.value = '';
+        chatList.scrollTop = chatList.scrollHeight;
+    }
+
+    function handleAction(btn, type) {
+        const row = btn.closest('.row-item, .quest-item');
+        if (type === 'approve') {
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            setTimeout(() => {
+                row.style.transition = 'all 0.3s';
+                row.style.opacity = '0';
+                row.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    row.remove();
+                    // 퀘스트 리스트가 비었는지 체크하는 로직 추가 가능
+                }, 300);
+            }, 500);
+        } else {
+            if (confirm('정말 반려하시겠습니까?')) {
+                row.style.opacity = '0.5';
+            }
+        }
+    }
+
+    function selectMonth(btn) {
+        document.querySelectorAll('.chip').forEach(el => el.classList.remove('active'));
+        btn.classList.add('active');
+    }
+
+    function toggleSettings(show) {
+        const modal = document.getElementById('settings-modal');
+        if (show) {
+            modal.classList.remove('hidden');
+            setTimeout(() => modal.querySelector('div.absolute.bottom-0').classList.remove('translate-y-full'), 10);
+        } else {
+            modal.classList.add('hidden');
+        }
+    }
+
+    function logout() {
+        if (confirm('로그아웃 하시겠습니까?')) location.href = '#'; // 실제 로그아웃 로직
+    }
+
+    function showToast(message) {
+        const toast = document.getElementById('toast');
+        toast.innerText = message;
+        toast.classList.add('show');
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3000);
+    }
+
+    // 기존 스크립트 하단의 showToast 호출 부분을 아래와 같이 감싸주세요.
+    window.onload = () => {
+        showToast("반갑습니다, 관리자님! 환영합니다. ✨");
+    };
+</script>
+</body>
+</html>
