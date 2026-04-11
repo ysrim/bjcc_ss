@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>봉동중앙교회 초등부 RPG 지침서</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+        
+        @page {
+            size: A4;
+            margin: 10mm;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f1f5f9;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .a4-container {
+            width: 210mm;
+            height: 282mm; /* 하단 여백 고려 */
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 12mm;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media print {
+            body { background: white; }
+            .a4-container { box-shadow: none; margin: 0; width: 100%; height: 100%; }
+            .no-print { display: none; }
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: #0f172a;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .guide-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="py-10">
+
+    <div class="a4-container">
+        <div class="text-center mb-8">
+            <div class="inline-block px-3 py-1 mb-2 border border-sky-500 rounded-full text-sky-600 font-bold text-xs tracking-widest uppercase">
+                2026 SEASON 1: 믿음의 용사
+            </div>
+            <h1 class="text-3xl font-black text-slate-900 tracking-tight">신앙 성장 RPG 포털 운영 지침서</h1>
+            <p class="text-sm text-slate-500 font-medium mt-1">봉동중앙교회 초등부 선생님(길드 마스터) 전용 매뉴얼</p>
+        </div>
+
+        <div class="mb-8">
+            <h2 class="section-title"><i class="fas fa-compass text-sky-500 mr-2"></i> 01. 우리의 비전: 길드 마스터의 사명</h2>
+            <div class="grid grid-cols-3 gap-4">
+                <div class="bg-sky-50 p-4 rounded-xl border border-sky-100 text-center">
+                    <i class="fas fa-chart-line text-sky-600 mb-2 text-xl"></i>
+                    <span class="block font-bold text-sky-900 text-sm mb-1">데이터화</span>
+                    <p class="text-[11px] text-sky-700 leading-snug">추상적인 신앙 성장을<br>시각적 지표로 전환</p>
+                </div>
+                <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100 text-center">
+                    <i class="fas fa-gamepad text-emerald-600 mb-2 text-xl"></i>
+                    <span class="block font-bold text-emerald-900 text-sm mb-1">동기 부여</span>
+                    <p class="text-[11px] text-emerald-700 leading-snug">친숙한 보상 체계로<br>아이들의 자발적 참여 유도</p>
+                </div>
+                <div class="bg-amber-50 p-4 rounded-xl border border-amber-100 text-center">
+                    <i class="fas fa-heart text-amber-600 mb-2 text-xl"></i>
+                    <span class="block font-bold text-amber-900 text-sm mb-1">밀착 케어</span>
+                    <p class="text-[11px] text-amber-700 leading-snug">낙오되는 학생 없는<br>정교한 학급 관리 실현</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-8">
+            <h2 class="section-title"><i class="fas fa-user-shield text-sky-500 mr-2"></i> 02. 선생님의 핵심 역할</h2>
+            <table class="w-full text-xs border-collapse border border-slate-200">
+                <thead class="bg-slate-50 text-slate-600">
+                    <tr>
+                        <th class="border border-slate-200 p-2 w-20">구분</th>
+                        <th class="border border-slate-200 p-2">주요 권한 및 활동</th>
+                        <th class="border border-slate-200 p-2">교육적 목적</th>
+                    </tr>
+                </thead>
+                <tbody class="text-slate-700">
+                    <tr>
+                        <td class="border border-slate-200 p-2 font-bold text-center bg-sky-50/50">길드 관리</td>
+                        <td class="border border-slate-200 p-2 italic">반 학생 활동 모니터링, 데이터 분석</td>
+                        <td class="border border-slate-200 p-2">학급 소속감 및 공동체성 강화</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-slate-200 p-2 font-bold text-center bg-sky-50/50 text-red-600">보상 승인</td>
+                        <td class="border border-slate-200 p-2 font-bold">퀘스트 결과 검증, 달란트 지급 확정</td>
+                        <td class="border border-slate-200 p-2">영적 훈련의 일관성 및 신뢰 유지</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-slate-200 p-2 font-bold text-center bg-sky-50/50">소그룹 케어</td>
+                        <td class="border border-slate-200 p-2 italic">미참여 학생 개별 상담 및 맞춤형 격려</td>
+                        <td class="border border-slate-200 p-2">데이터 기반의 정밀한 영적 케어</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="grid grid-cols-2 gap-8 flex-grow">
+            <div>
+                <h2 class="section-title"><i class="fas fa-bolt text-amber-400 mr-2"></i> 03. 전략적 액션</h2>
+                <div class="space-y-4">
+                    <div class="flex gap-3">
+                        <span class="flex-shrink-0 w-5 h-5 bg-slate-800 text-white rounded-full flex items-center justify-center text-[10px] font-bold">1</span>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900">지표 분석 (Analyze)</h4>
+                            <p class="text-[11px] text-slate-500 mt-1 leading-relaxed">대시보드에서 주간 수행 현황을 확인하세요. 2주 이상 무반응은 '영적 정체' 신호입니다.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <span class="flex-shrink-0 w-5 h-5 bg-slate-800 text-white rounded-full flex items-center justify-center text-[10px] font-bold">2</span>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900">승인 및 피드백 (Authorize)</h4>
+                            <p class="text-[11px] text-slate-500 mt-1 leading-relaxed">활동 기록 검토 후 칭찬 댓글을 남겨주세요. 선생님의 한마디가 최고의 보상입니다.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <span class="flex-shrink-0 w-5 h-5 bg-slate-800 text-white rounded-full flex items-center justify-center text-[10px] font-bold">3</span>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900">길드 동기화 (Synchronize)</h4>
+                            <p class="text-[11px] text-slate-500 mt-1 leading-relaxed">분반 공부 시 포털의 '길드 랭킹'을 언급하며 서로를 응원하는 분위기를 조성하세요.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="section-title"><i class="fas fa-tasks text-emerald-400 mr-2"></i> 04. 정기 체크리스트</h2>
+                <div class="space-y-2">
+                    <div class="flex items-center gap-3 p-2 bg-slate-50 rounded-lg border border-slate-100">
+                        <div class="w-4 h-4 border-2 border-slate-300 bg-white rounded"></div>
+                        <span class="text-[11px] font-bold text-slate-700">[주간] 길드원 퀘스트 이행률 모니터링</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-2 bg-slate-50 rounded-lg border border-slate-100">
+                        <div class="w-4 h-4 border-2 border-slate-300 bg-white rounded"></div>
+                        <span class="text-[11px] font-bold text-slate-700">[주간] 미승인 달란트 지급 요청 확정</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-2 bg-slate-50 rounded-lg border border-slate-100">
+                        <div class="w-4 h-4 border-2 border-slate-300 bg-white rounded"></div>
+                        <span class="text-[11px] font-bold text-slate-700">[수시] 정체된 학생 개별 격려(전화/심방)</span>
+                    </div>
+                    <div class="mt-4 p-3 bg-amber-50 rounded-lg border border-amber-100">
+                        <p class="text-[10px] text-amber-800 leading-tight">
+                            <i class="fas fa-info-circle mr-1"></i>
+                            <strong>주의:</strong> 선생님의 승인 지연은 아이들의 동기 부여를 급격히 저하시킵니다. 매주 토요일까지는 승인을 완료해 주세요.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-auto pt-6 border-t border-slate-100 flex justify-between items-end">
+            <div class="text-left">
+                <p class="text-xs font-black text-slate-800">봉동중앙교회 초등부</p>
+                <p class="text-[10px] text-slate-400 uppercase tracking-tighter">Bongdong Jungang Church Elementary Dept.</p>
+            </div>
+            <div class="text-right">
+                <p class="text-[10px] text-slate-400 font-bold italic">"한 명의 아이도 낙오되지 않는 즐거운 신앙 여정"</p>
+                <p class="text-[10px] text-slate-300">Copyright © 2026 Bongdong Jungang Church.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed bottom-5 right-5 no-print">
+        <button onclick="window.print()" class="bg-slate-900 text-white w-14 h-14 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center text-xl">
+            <i class="fas fa-print"></i>
+        </button>
+    </div>
+
+</body>
+</html>
