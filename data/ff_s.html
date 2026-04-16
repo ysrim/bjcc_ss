@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파이널 판타지 10 HD 리마스터 종결 공략 (HP 9,999 최적화 빌드)</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --table-border: #95a5a6;
+        }
+        
+        /* 화면 프리뷰용 (A4 용지 느낌) */
+        body {
+            font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+            line-height: 1.5;
+            color: #000;
+            background-color: #525659;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            width: 210mm;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20mm;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 18pt; /* 22pt -> 18pt 축소 */
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: var(--primary-color);
+            font-size: 14pt; /* 16pt -> 14pt 축소 */
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+        h3 {
+            color: var(--secondary-color);
+            font-size: 12pt; /* 13pt -> 12pt 축소 */
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+        h4 {
+            color: #2980b9;
+            font-size: 10.5pt; /* 11.5pt -> 10.5pt 축소 */
+            margin-top: 12px;
+        }
+        p, ul, ol, li {
+            font-size: 9.5pt; /* 10.5pt -> 9.5pt 축소 */
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            font-size: 9pt; /* 10pt -> 9pt 축소 */
+        }
+        th, td {
+            padding: 6px 8px;
+            border: 1px solid var(--table-border);
+            text-align: left;
+        }
+        th {
+            background-color: #ecf0f1;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        ul, ol {
+            margin-bottom: 12px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 4px;
+        }
+        
+        .tip-box {
+            background-color: #e8f4f8;
+            border-left: 4px solid var(--accent-color);
+            padding: 10px 12px;
+            margin: 12px 0;
+        }
+        
+        strong {
+            color: #c0392b;
+        }
+        .highlight {
+            background-color: #fff3cd;
+            padding: 1px 3px;
+            border-radius: 3px;
+        }
+        .warning-text {
+            color: #d35400;
+            font-size: 9pt; /* 10pt -> 9pt 축소 */
+            font-weight: bold;
+        }
+
+        /* 인쇄 전용 CSS (Ctrl+P 출력 시 적용) */
+        @page {
+            size: A4;
+            margin: 15mm;
+        }
+        @media print {
+            body {
+                background-color: transparent;
+                padding: 0;
+            }
+            .container {
+                width: 100%;
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+            }
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            table, tr, .tip-box {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            h2, h3, h4 {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>파이널 판타지 10 HD 리마스터 종결 공략</h1>
+
+    <section id="phase-1">
+        <h2>1단계: 오메가 유적 클리어</h2>
+        
+        <h3>오메가 유적 들어가기 템 준비(유나만 임시로 슬롯 3개짜리 준비)</h3>
+        <ul>
+            <li><strong>완전 석화 방어 (Stone Proof):</strong> 데모놀리스의 반격 등에 석화+파괴되는 것을 방지 (만능약 20개)</li>
+            <li><strong>완전 혼란 방어 (Confuse Proof):</strong> 몰볼의 입김 대책 (함락의 마석 48개)</li>
+        </ul>
+
+        <h3>주요 몬스터 대처 및 팁</h3>
+        <ul>
+            <li><strong>마스터 톤베리 출현 위치:</strong> 유적 입구 근처보다는 세이브 포인트 뒤쪽의 깊숙한 통로나 보물상자가 나오는 막다른 길 근처에서 비교적 잘 발견됩니다.</li>
+            <li><strong>바루나 대처법:</strong> 바루나는 시작하자마자 자신에게 '헤이스트'를 겁니다. <strong>'디스펠'</strong>로 해제하거나 '디레이(지연)' 계열 공격을 사용하면 한결 수월하게 포획할 수 있습니다.</li>
+            <li><strong>지역 제패 보상:</strong> 오메가 유적의 모든 몬스터를 10마리씩 포획하여 지역 제패를 달성하면, 훈련장 주인으로부터 '내일로의 문(Door to Tomorrow)' 99개를 보상으로 받을 수 있습니다.</li>
+        </ul>
+
+        <h3>오메가 유적 몬스터 리스트</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>몬스터명</th>
+                    <th>HP</th>
+                    <th>MP</th>
+                    <th>특징 및 주의사항</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>자우루스</td><td>7,850</td><td>10</td><td>'석화의 숨결' 사용. 선제 공격 시 주의.</td></tr>
+                <tr><td>플로트 데스</td><td>6,700</td><td>180</td><td>혼란을 거는 '미혹의 시선' 사용.</td></tr>
+                <tr><td>블랙 엘리멘탈</td><td>7,600</td><td>320</td><td>물리 방어력이 매우 높음. 속성 마법/플레어 사용.</td></tr>
+                <tr><td>할마</td><td>13,000</td><td>10</td><td>껍질 때문에 단단함. '철갑수' 등으로 장갑 파괴 권장.</td></tr>
+                <tr><td>푸로보로스</td><td>20,000</td><td>10</td><td>격파 시 '자폭' 사용. 3번 연속 행동 후 자폭하기도 함.</td></tr>
+                <tr><td>스피릿</td><td>10,000</td><td>350</td><td>공격 시 '독/혼란' 반격. 성 속성 마법 사용.</td></tr>
+                <tr><td>마케아</td><td>18,000</td><td>20</td><td>공격 속도가 빠르고 턴이 자주 돌아옴.</td></tr>
+                <tr><td>마스터 쿠얼</td><td>13,000</td><td>300</td><td>'블래스터'로 즉사 또는 석화 유발.</td></tr>
+                <tr><td>마스터 톤베리</td><td>48,000</td><td>10</td><td>'모두의 원한' 반격. 접근 시 '식칼' 사용. (포획 난이도 높음)</td></tr>
+                <tr><td>바루나</td><td>56,000</td><td>600</td><td>강력한 전체 마법 및 헤이스트 사용.</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="phase-2">
+        <h2>2단계: '돈 톤베리' 비법으로 광속 레벨업 (S.LV 노가다)</h2>
+        
+        <h3>🛠️ 캐릭터별 무기 세팅 가이드</h3>
+        <ul>
+            <li>티다, 유나, 류크는 민첩이 높고 범용성이 좋아 AP 노가다의 주역입니다.</li>
+            <li><strong>한눈박이(종족 제패 - 눈알 계열)</strong>를 반복 사냥하여 각 캐릭터의 트리플 AP + 빈 슬롯 2개짜 무기를 구하세요.</li>
+            <li>해당 무기에 <strong>'오버드라이브를 AP로'</strong>를 먼저 개조하여 박습니다.</li>
+            <li>여력이 된다면 마지막 슬롯에 <strong>'트리플 오버드라이브'</strong>를 추가하여 효율을 극대화합니다.</li>
+        </ul>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>우선순위</th>
+                    <th>어빌리티명</th>
+                    <th>필요 재료 (개수)</th>
+                    <th>주요 획득처</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1순위</td><td>트리플 AP</td><td>미지의 날개 (50개)</td><td>한눈박이 드랍 무기로 획득 권장</td></tr>
+                <tr><td>2순위</td><td>오버드라이브를 AP로</td><td>내일로의 문 (10개)</td><td>지역 제패 6곳 달성 시 99개 보상</td></tr>
+                <tr><td>3순위</td><td>트리플 오버드라이브</td><td>승부조작 (30개)</td><td>모든 몬스터 1마리씩 포획 시 99개 보상</td></tr>
+            </tbody>
+        </table>
+
+        <h3>🏃 노가다 실행 방법 (돈 톤베리 전략)</h3>
+        <ol>
+            <li><strong>오버드라이브 모드 설정:</strong> 몬스터를 가장 많이 잡은 캐릭터(보통 티다)는 '수행', 나머지 두 명은 '수련'으로 설정합니다.</li>
+            <li>훈련장 '지역 제패 - 버섯 바위 도로' 보상인 돈 톤베리와 전투합니다.</li>
+            <li>'수행' 캐릭터가 공격하고 톤베리의 '모두의 원한' 반격을 맞습니다.</li>
+            <li>다른 캐릭터가 살려주기를 반복하다가, 톤베리가 코앞까지 오면 <strong>'도망치기'</strong>로 전투를 종료합니다.</li>
+        </ol>
+    </section>
+
+    <section id="phase-3">
+        <h2>3단계: 최종 방어구 제작 (HP 9,999 실전형 커스터마이즈)</h2>
+        <p>HP 돌파를 포기하고 9,999를 유지하는 것은 다크 에이온과 데어 에벤두르 공략 시 가장 효율적인 <strong>가성비 세팅</strong>입니다. 맞기 전에 턴을 가져가고, 죽으면 즉시 턴 소모 없이 부활시키는 매커니즘입니다.</p>
+        
+        <h3>실전형 방어구 추천 조합 (4슬롯)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>슬롯 1</th>
+                    <th>슬롯 2</th>
+                    <th>슬롯 3</th>
+                    <th>슬롯 4</th>
+                    <th>핵심 로직</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>오토 헤이스트</td>
+                    <td>오토 프로테스</td>
+                    <td>오토 피닉스</td>
+                    <td>리본 (또는 완전 석화 방어)</td>
+                    <td>HP 돌파를 제외하여 제작 시간을 단축하고 전투 회전율을 극대화함</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>어빌리티별 필요 재료 및 수급 방법</h3>
+        <ul>
+            <li><strong>리본:</strong> 다크 마터 (99개) - 모든 몬스터 5마리씩 포획 시 99개 보상. 애착 캐릭터에게 우선 장착.</li>
+            <li><strong>오토 헤이스트:</strong> 초코보의 날개 (80개) - 오메가 유적의 <strong>'마케아'</strong>에게 뇌물 (약 36만 길에 60개 내외)</li>
+            <li><strong>오토 프로테스:</strong> 빛의 커튼 (70개) - 훈련장 '탄게트' 사냥 또는 '철거인'에게서 훔치기</li>
+            <li><strong>오토 피닉스:</strong> 메가 피닉스 (20개) - 고스트(도둑질) 또는 '유령' 계열 몬스터에게 뇌물</li>
+        </ul>
+
+        <h3>방어구 제작 파이프라인</h3>
+        <ol>
+            <li><strong>베이스 아이템 구입:</strong> 마카라니아 숲 입구 <strong>완츠(Wantz)</strong>에게서 4슬롯 빈 방어구를 구매합니다. (개당 10만 길)</li>
+            <li><strong>오토 헤이스트 장착:</strong> 행동 횟수 증가를 위해 최우선으로 장착합니다. 노가다 속도가 2배 상승합니다.</li>
+            <li><strong>오토 프로테스 & 피닉스 장착:</strong> 물리 대미지를 반감시키고, 전투 불능 시 자동으로 파티원을 부활시키는 생존 사이클을 완성합니다.</li>
+        </ol>
+    </section>
+
+    <section id="phase-4">
+        <h2>4단계: 능력치 255 찍기 (스피어 보드 최적화 공사)</h2>
+        <p>HP 9,999 유지 전략을 채택했으므로, 스피어 보드의 불필요한 노드를 대거 덜어낼 수 있습니다. 극한의 확률형 노가다인 '운(Luck)' 노드를 최소화하고 명중/회피로 대체하는 효율 중심의 알고리즘을 적용합니다.</p>
+
+        <h3>1. HP 및 MP 노드: 최소한의 최적화</h3>
+        <ul>
+            <li><strong>HP 노드:</strong> 9,999에 도달할 정도만 남깁니다. 공간이 부족하다면 +100, +200짜리 효율 낮은 노드는 <strong>클리어 스피어</strong>로 지워버립니다.</li>
+            <li><strong>MP 노드:</strong> 999면 충분합니다. 초과되는 잉여 MP 노드는 모두 클리어 스피어로 삭제하여 빈 공간을 확보합니다.</li>
+        </ul>
+
+        <h3>2. 핵심 능력치 255 (필수 공정)</h3>
+        <p>방어구에 HP 돌파가 없으므로 '맞기 전에 잡거나, 맞아도 피해를 최소화' 해야 합니다.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>능력치 (목표치)</th>
+                    <th>타겟 몬스터 (훈련장)</th>
+                    <th>공략 핵심 팁</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>공격력 (255)</td><td>저거너트</td><td>'아론'의 철갑수(Banishing Blade)로 장갑 파괴 후 타격.</td></tr>
+                <tr><td>물리 방어 (255)</td><td>탄게트</td><td>오토 헤이스트/프로테스 필수. 연타 공격 주의.</td></tr>
+                <tr><td>마법 방어 (255)</td><td>한눈박이</td><td>마방 255 달성 시 적의 전체 마법 대미지를 9,999 이하로 억제 가능.</td></tr>
+                <tr><td>민첩 (170~250)</td><td>펜릴</td><td>170만 넘어도 효율이 나오지만, 255를 찍으면 오토 헤이스트와 결합해 압도적인 턴 확보.</td></tr>
+            </tbody>
+        </table>
+
+        <h3>3. '운(Luck)' vs '명중/회피'의 설계 (핵심 아키텍처)</h3>
+        <div class="tip-box">
+            <p><strong>운 255 노가다의 무한 루프에서 탈출하기 위한 타협안입니다.</strong></p>
+            <ul>
+                <li><strong>운(Luck)은 <span class="highlight">130~140</span>만 세팅:</strong> 이 수치면 다크 요짐보 등 대부분의 다크 에이온에게 크리티컬이 확정적으로 터집니다.</li>
+                <li><strong>부족한 명중/회피 보완 (<span class="highlight">255 달성</span>):</strong> 운 노가다를 줄여서 남는 방대한 빈 공간에 <strong>명중 스피어(호넷 사냥)</strong>와 <strong>회피 스피어(프테릭스 사냥)</strong>를 채워 각각 255를 만듭니다. 운 255를 찍는 것보다 공사 속도가 압도적으로 빠릅니다.</li>
+            </ul>
+        </div>
+
+        <h4>📌 고난도 공정: 운(Luck) 스피어 작업 상세 가이드</h4>
+        <p class="warning-text">※ 개발자 지향적 효율 루트: 공격력, 물리/마법 방어, 민첩을 먼저 255 찍은 후 가장 마지막 단계에서 진행하세요. (와카의 공격력을 극대화해야 '어택 릴'로 쾌적한 사냥이 가능합니다.)</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>구분</th>
+                    <th>타겟 몬스터 (해금 조건)</th>
+                    <th>드랍 아이템</th>
+                    <th>공략 알고리즘 및 주의사항</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>운 스피어</strong><br>(빈칸에 노드 생성)</td>
+                    <td><strong>그레이터 스피어</strong><br>(종족 제패 2종류 이상)</td>
+                    <td>1개<br>(오버킬 2개)</td>
+                    <td>
+                        <ul>
+                            <li>모든 공격에 대해 <strong>'수력(Hydraulic Press)'</strong>으로 반격합니다. (현재 HP의 50% 데미지)</li>
+                            <li>단타 공격은 반격 리스크가 크므로, 와카의 <strong>'어택 릴'</strong>이나 티다의 '에이스 오브 더 블리츠' 등 강력한 연타계 오버드라이브로 빠르게 녹이는 것이 핵심입니다.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>행운의 스피어</strong><br>(만들어진 노드 활성화)</td>
+                    <td><strong>어스 이터</strong><br>(지역 제패 2종류 이상)</td>
+                    <td>1개<br>(오버킬 2개)</td>
+                    <td>
+                        <ul>
+                            <li>HP가 130만으로 매우 높으며, 뒤집어지기 전까지 물리 공격에 대해 <strong>'메가 플레어'</strong>로 반격합니다.</li>
+                            <li>'즉사' 판정 공격을 하므로 방어구에 <strong>'완전 즉사 방어'</strong> 세팅이 필요합니다.</li>
+                            <li>'어택 릴'이나 '슬라이스 & 다이스'로 데미지를 주어 뒤집어놓은 뒤 패는 것이 정석입니다. (행운의 스피어는 파티원 수만큼 필요하므로 노가다 분량이 가장 많습니다.)</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>4. 남는 공간 처리 (Garbage Collection)</h3>
+        <p>HP 돌파용 노드를 만들지 않았기 때문에 스피어 보드의 약 40%가 빈 공간으로 남게 됩니다.</p>
+        <ul>
+            <li><strong>무시 (Ignore):</strong> 공/방/마방/명중/회피가 255이고 운이 130 이상이라면 더 이상 스피어를 박을 필요가 없습니다. 노가다를 즉시 종료합니다.</li>
+            <li><strong>보험용 더미 데이터:</strong> 혹시 모를 장비 변경이나 9,999를 확실히 넘기기 위해 약간의 잉여 HP 노드를 보드상에만 남겨두는 정도로 마무리합니다.</li>
+        </ul>
+
+        <h3>5. 자금(길) 조달 전략</h3>
+        <p>클리어 스피어 구매(개당 1만 길) 및 마케아 뇌물 비용은 <strong>한눈박이(One Eye)</strong> 사냥으로 충당합니다. 드랍되는 3슬롯 무기(트리플 AP 등)를 상점에 판매하면 무기당 2~6만 길을 즉시 확보할 수 있습니다.</p>
+    </section>
+
+</div>
+
+</body>
+</html>
