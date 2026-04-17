@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파이널 판타지 10 HD 리마스터</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --table-border: #bdc3c7;
+        }
+        
+        /* 화면 프리뷰용 (A4 용지 느낌) */
+        body {
+            font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #525659;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            width: 210mm;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20mm;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 20pt;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 24px;
+            padding-bottom: 10px;
+            border-bottom: 3px double var(--primary-color);
+        }
+        h2 {
+            color: var(--primary-color);
+            font-size: 14pt;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 5px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        h3 {
+            color: var(--secondary-color);
+            font-size: 12pt;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        h4 {
+            color: #2980b9;
+            font-size: 11pt;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+        p, ul, ol, li {
+            font-size: 10pt;
+            margin-top: 5px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 9.5pt;
+        }
+        th, td {
+            padding: 8px 10px;
+            border: 1px solid var(--table-border);
+            text-align: left;
+            vertical-align: middle;
+        }
+        th {
+            background-color: #f4f6f7;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 25px;
+        }
+        li {
+            margin-bottom: 6px;
+        }
+        
+        .tip-box {
+            background-color: #e8f4f8;
+            border: 1px solid #bce8f1;
+            border-left: 5px solid var(--accent-color);
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+
+        .warning-box {
+            background-color: #fdf2f2;
+            border: 1px solid #f2dede;
+            border-left: 5px solid #c0392b;
+            padding: 12px 15px;
+            margin: 15px 0;
+            color: #c0392b;
+        }
+        
+        strong {
+            color: #c0392b;
+        }
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        /* 몬스터 위치 정보 스타일 */
+        .loc {
+            font-size: 8.5pt;
+            color: #7f8c8d;
+            font-weight: normal;
+            display: block;
+            margin-top: 3px;
+        }
+
+        /* =========================================
+           인쇄 전용 CSS (Ctrl+P 출력 시 완벽 적용) 
+           ========================================= */
+        @page {
+            size: A4;
+            margin: 15mm; /* 여백 확보 */
+        }
+        
+        @media print {
+            body {
+                background-color: transparent;
+                padding: 0;
+                color: #000; /* 텍스트를 완전한 검은색으로 변경 */
+            }
+            .container {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+            }
+            
+            /* 잉크 절약 및 흑백 대비 최적화 */
+            h1, h2, h3, h4 {
+                color: #000;
+            }
+            h2 {
+                border-bottom: 2px solid #000;
+            }
+            strong {
+                color: #000;
+                font-weight: 800; /* 흑백 출력 시 강조를 위해 굵기 강화 */
+            }
+            th {
+                background-color: transparent; /* 배경색 제거 */
+                color: #000;
+                border-bottom: 2px solid #000; /* 헤더 구분선 강화 */
+            }
+            
+            .tip-box, .warning-box {
+                background-color: transparent !important;
+                border: 1px solid #666;
+                border-left: 5px solid #000; /* 테두리로만 강조 */
+                color: #000;
+            }
+            
+            .loc {
+                color: #555;
+            }
+
+            .highlight {
+                background-color: transparent;
+                border: 1px dashed #666; /* 형광펜 효과 대신 점선 테두리 */
+            }
+
+            /* 배경색 인쇄 강제 옵션 해제 (잉크 낭비 방지) */
+            * {
+                -webkit-print-color-adjust: economy !important;
+                print-color-adjust: economy !important;
+            }
+
+            /* 페이지 넘김 방지 (매우 중요) */
+            table, tr, .tip-box, .warning-box {
+                page-break-inside: avoid; /* 요소 중간에서 페이지가 잘리지 않게 함 */
+            }
+            h2, h3, h4 {
+                page-break-after: avoid; /* 제목 바로 다음에서 페이지가 넘어가지 않게 함 */
+            }
+            ul, ol {
+                page-break-inside: auto;
+            }
+            li {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>파이널 판타지 10 HD 리마스터 종결 공략</h1>
+
+    <section id="phase-2">
+        <h2>1단계: '돈 톤베리' 비법으로 광속 레벨업 (S.LV 노가다)</h2>
+
+        <h3>🛠️ 캐릭터별 무기 세팅 가이드</h3>
+        <ul>
+            <li>티다, 유나, 류크는 민첩이 높고 범용성이 좋아 AP 노가다의 주역입니다.</li>
+            <li><strong>한눈박이(훈련장: 종족 제패 - 눈알 계열)</strong>를 반복 사냥하여 각 캐릭터의 트리플 AP + 빈 슬롯 2개짜 무기를 구하세요.</li>
+            <li>해당 무기에 <strong>'오버드라이브를 AP로'</strong>를 먼저 개조하여 박습니다.</li>
+            <li>여력이 된다면 마지막 슬롯에 <strong>'트리플 오버드라이브'</strong>를 추가하여 효율을 극대화합니다.</li>
+        </ul>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>우선순위</th>
+                    <th>어빌리티명</th>
+                    <th>필요 재료 (개수)</th>
+                    <th>주요 획득처</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1순위</td><td>트리플 AP</td><td>미지의 날개 (50개)</td><td><strong>한눈박이</strong> 드랍 무기로 획득 권장<br><span class="loc">(훈련장: 종족 제패 - 눈알 계열)</span></td></tr>
+                <tr><td>2순위</td><td>오버드라이브를 AP로</td><td>내일로의 문 (10개)</td><td>지역 제패 6곳 달성 시 99개 보상<br><span class="loc">(타겟: 돈 톤베리 - 훈련장: 지역 제패 버섯 바위 도로)</span></td></tr>
+                <tr><td>3순위</td><td>트리플 오버드라이브</td><td>승부조작 (30개)</td><td>모든 몬스터 1마리씩 포획 시 99개 보상</td></tr>
+            </tbody>
+        </table>
+
+        <h3>🏃 노가다 실행 방법 (돈 톤베리 전략)</h3>
+        <ol>
+            <li><strong>오버드라이브 모드 설정:</strong> 몬스터를 가장 많이 잡은 캐릭터(보통 티다)는 '수행', 나머지 두 명은 '수련'으로 설정합니다.</li>
+            <li>훈련장 '지역 제패 - 버섯 바위 도로' 보상인 <strong>돈 톤베리</strong>와 전투합니다.
+                <span class="loc">(위치: 훈련장 - 지역 제패 버섯 바위 도로)</span>
+            </li>
+            <li>'수행' 캐릭터가 공격하고 톤베리의 '모두의 원한' 반격을 맞습니다.</li>
+            <li>다른 캐릭터가 살려주기를 반복하다가, 톤베리가 코앞까지 오면 <strong>'도망치기'</strong>로 전투를 종료합니다.</li>
+        </ol>
+    </section>
+
+    <section id="phase-2-5">
+        <h2>2단계: 필수/전략 스킬 위치 가이드 (일반 스피어 기준)</h2>
+        <p>본격적인 능력치 공사에 들어가기 전, 각 캐릭터가 아래 지점까지 도달하여 스킬을 확보해야 합니다.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>스킬명</th>
+                    <th>대략적인 위치</th>
+                    <th>도달 방법 및 팁</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>퀵 트릭</strong></td>
+                    <td>5시 방향 (티다 구역 끝)</td>
+                    <td>티다 보드의 끝부분. 리쿠/아론 구역 경계선 근처. 정직하게 진행 시 자연 도달.</td>
+                </tr>
+                <tr>
+                    <td><strong>리레이즈</strong></td>
+                    <td>1시~2시 방향 (유나 구역 끝)</td>
+                    <td>유나 보드 최북단 외곽. Lv.4 키 스피어가 다수 필요하므로 미리 확보 권장.</td>
+                </tr>
+                <tr>
+                    <td><strong>맡기기</strong></td>
+                    <td>7시~8시 방향 (아론 구역 끝)</td>
+                    <td>아론 보드 하단 끝. 티다 구역에서 내려오거나 아론 길을 따라 진행 시 발견.</td>
+                </tr>
+                <tr>
+                    <td><strong>강탈 / 사용</strong></td>
+                    <td>10시~11시 방향 (리쿠 구역)</td>
+                    <td>'사용'은 초입, '강탈'은 중반 이후 루루 구역 왼쪽 상단 끝자락에 위치.</td>
+                </tr>
+                <tr>
+                    <td><strong>연속 마법</strong></td>
+                    <td>12시~1시 방향 (루루 구역 끝)</td>
+                    <td>루루 보드 끝, 유나 구역 인접. 플레어/울티마 노드 근처 배치.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="phase-2-7">
+        <h2>3단계: S.LV 99 이후의 효율적 운영 알고리즘</h2>
+        <p>경험치가 가득 찼다면 다음 순서에 따라 '포스트 99레벨'을 관리하여 효율을 극대화하세요.</p>
+        
+        <h3>1. 스피어 보드 '강제 소모' (Stack Clear)</h3>
+        <p>다른 몬스터를 잡는 것은 시간 낭비입니다. 99개를 다 쓰기 전까지는 훈련장 밖으로 나가지 마세요.</p>
+        <ul>
+            <li><strong>이동 전략:</strong> 상기 필수 스킬을 배우지 못한 캐릭터 위주로 99칸을 아낌없이 소모하여 전진.</li>
+            <li><strong>노드 활성화:</strong> 이동 경로상의 쓸만한 노드(+3 이상)는 모두 찍으면서 진행.</li>
+        </ul>
+
+        <h3>2. "Sync" 맞추기 (3인 합류)</h3>
+        <p>공사 시작을 위해 티다, 유나, 리쿠를 한곳에 모읍니다. (한 명 삭제 → 설치 → 3인 동시 습득)</p>
+        <ul>
+            <li><strong>방법:</strong> 프렌드/텔레포트 스피어를 사용하여 가장 중요한 위치(예: 퀵 트릭 근처)로 나머지 멤버를 점프시킵니다.</li>
+        </ul>
+
+        <h3>3. 리소스 체크: 활성화 스피어 농사 (Kottos)</h3>
+        <div class="tip-box">
+            <strong>💡 활성화 스피어가 부족하다면?</strong><br>
+            훈련장 <strong>투귀(Kottos)</strong>에게 [파워/마나/스피드/어빌리티 소모액] 아이템을 던지고 처치하세요.
+            <span class="loc">(위치: 훈련장 - 지역 제패 미헨 가도)</span>
+            <strong>오버킬 시 해당 스피어를 40개씩 드랍</strong>하므로 재고를 상시 99개로 유지 가능합니다.
+        </div>
+
+        <h3>4. 첫 번째 공사 타겟 선정: [공격력 +4]</h3>
+        <p>세 명이 모였다면 <strong>저거너트(Juggernaut)</strong>를 타겟으로 공격력 255를 먼저 달성하세요.
+            <span class="loc">(위치: 훈련장 - 종족 제패 뿔 달린 짐승)</span>
+            저거너트 드랍 스피어를 사용하여 주변의 낮은 노드를 지우고 +4를 박습니다.
+        </p>
+    </section>
+
+    <section id="phase-3">
+        <h2>4단계: 최종 방어구 제작 (HP 9,999 실전형 커스터마이즈)</h2>
+        <p>HP 돌파를 포기하고 9,999를 유지하는 것은 다크 에이온과 데어 에벤두르 공략 시 가장 효율적인 <strong>가성비 세팅</strong>입니다. 맞기 전에 턴을 가져가고, 죽으면 즉시 턴 소모 없이 부활시키는 매커니즘입니다.</p>
+        
+        <h3>실전형 방어구 추천 조합 (4슬롯)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>슬롯 1</th>
+                    <th>슬롯 2</th>
+                    <th>슬롯 3</th>
+                    <th>슬롯 4</th>
+                    <th>핵심 로직</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>오토 헤이스트</td>
+                    <td>오토 프로테스</td>
+                    <td>오토 피닉스</td>
+                    <td>리본 (또는 완전 석화 방어)</td>
+                    <td>HP 돌파를 제외하여 제작 시간을 단축하고 전투 회전율을 극대화함</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>어빌리티별 필요 재료 및 수급 방법</h3>
+        <ul>
+            <li><strong>리본:</strong> 다크 마터 (99개) - 모든 몬스터 5마리씩 포획 시 99개 보상. 애착 캐릭터에게 우선 장착.</li>
+            <li><strong>오토 헤이스트:</strong> 초코보의 날개 (80개) - 오메가 유적의 <strong>마케아</strong>에게 뇌물 (약 36만 길에 60개 내외)<br><span class="loc">(위치: 오메가 유적)</span></li>
+            <li><strong>오토 프로테스:</strong> 빛의 커튼 (70개) - 훈련장 <strong>탄게트</strong> 사냥 또는 <strong>철거인</strong>에게서 훔치기<br><span class="loc">(위치: 탄게트 - 훈련장: 종족 제패 갑각 / 철거인 - 번개 평원)</span></li>
+            <li><strong>오토 피닉스:</strong> 메가 피닉스 (20개) - 고스트(도둑질) 또는 '유령' 계열 몬스터에게 뇌물<br><span class="loc">(위치: 고스트 - 도둑맞은 기도자의 동굴)</span></li>
+        </ul>
+
+        <h3>방어구 제작 파이프라인</h3>
+        <ol>
+            <li><strong>베이스 아이템 구입:</strong> 마카라니아 숲 입구 <strong>완츠(Wantz)</strong>에게서 4슬롯 빈 방어구를 구매합니다. (개당 10만 길)</li>
+            <li><strong>오토 헤이스트 장착:</strong> 행동 횟수 증가를 위해 최우선으로 장착합니다. 노가다 속도가 2배 상승합니다.</li>
+            <li><strong>오토 프로테스 & 피닉스 장착:</strong> 물리 대미지를 반감시키고, 전투 불능 시 자동으로 파티원을 부활시키는 생존 사이클을 완성합니다.</li>
+        </ol>
+    </section>
+
+    <section id="phase-4">
+        <h2>5단계: 능력치 255 찍기 (스피어 보드 최적화 공사)</h2>
+        <p>HP 9,999 유지 전략을 채택했으므로, 스피어 보드의 불필요한 노드를 대거 덜어낼 수 있습니다. 극한의 확률형 노가다인 '운(Luck)' 노드를 최소화하고 명중/회피로 대체하는 효율 중심의 알고리즘을 적용합니다.</p>
+
+        <h3>1. HP 및 MP 노드: 최소한의 최적화</h3>
+        <ul>
+            <li><strong>HP 노드:</strong> 9,999에 도달할 정도만 남깁니다. 공간이 부족하다면 +100, +200짜리 효율 낮은 노드는 <strong>클리어 스피어</strong>로 지워버립니다.</li>
+            <li><strong>MP 노드:</strong> 999면 충분합니다. 초과되는 잉여 MP 노드는 모두 클리어 스피어로 삭제하여 빈 공간을 확보합니다.</li>
+        </ul>
+
+        <h3>2. 핵심 능력치 255 (필수 공정)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>능력치 (목표치)</th>
+                    <th>타겟 몬스터 (훈련장)</th>
+                    <th>공략 핵심 팁</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>공격력 (255)</td><td><strong>저거너트</strong><br><span class="loc">(훈련장: 종족 제패 - 뿔 달린 짐승)</span></td><td>'아론'의 철갑수(Banishing Blade)로 장갑 파괴 후 타격.</td></tr>
+                <tr><td>물리 방어 (255)</td><td><strong>탄게트</strong><br><span class="loc">(훈련장: 종족 제패 - 갑각)</span></td><td>오토 헤이스트/프로테스 필수. 연타 공격 주의.</td></tr>
+                <tr><td>마법 방어 (255)</td><td><strong>한눈박이</strong><br><span class="loc">(훈련장: 종족 제패 - 눈알)</span></td><td>마방 255 달성 시 적의 전체 마법 대미지를 9,999 이하로 억제 가능.</td></tr>
+                <tr><td>민첩 (170~250)</td><td><strong>펜릴</strong><br><span class="loc">(훈련장: 종족 제패 - 늑대)</span></td><td>170만 넘어도 효율이 나오지만, 255를 찍으면 오토 헤이스트와 결합해 압도적인 턴 확보.</td></tr>
+            </tbody>
+        </table>
+
+        <h3>3. '운(Luck)' vs '명중/회피'의 설계</h3>
+        <div class="tip-box">
+            <p><strong>운(Luck)은 130~140만 세팅</strong>하고 남는 공간에 <strong>명중/회피(각 255)</strong>를 채우는 것이 운 255를 찍는 것보다 공사 속도가 압도적으로 빠릅니다.</p>
+        </div>
+
+        <h4>📌 고난도 공정: 운(Luck) 스피어 작업 상세 가이드</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>구분</th>
+                    <th>타겟 몬스터</th>
+                    <th>드랍 아이템</th>
+                    <th>주의사항</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>운 스피어</strong></td>
+                    <td><strong>그레이터 스피어</strong><br><span class="loc">(훈련장: 오리지널 - 종족 제패 2종류)</span></td>
+                    <td>1~2개</td>
+                    <td>반격기 '수력' 주의. 연타 오버드라이브로 빠르게 처치.</td>
+                </tr>
+                <tr>
+                    <td><strong>행운의 스피어</strong></td>
+                    <td><strong>어스 이터</strong><br><span class="loc">(훈련장: 오리지널 - 지역 제패 2종류)</span></td>
+                    <td>1~2개</td>
+                    <td>'완전 즉사 방어' 필수. 뒤집어놓은 뒤 공략하는 것이 정석.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>4. 남는 공간 처리 (Garbage Collection)</h3>
+        <p>공/방/마방/명중/회피 255 및 운 130 이상 달성 시 더 이상 노드를 박을 필요가 없습니다. 노가다를 즉시 종료하세요.</p>
+
+        <h3>5. 자금(길) 조달 전략</h3>
+        <p><strong>한눈박이(One Eye) 사냥</strong>을 통해 드랍되는 3슬롯 무기를 매각하여 클리어 스피어 및 뇌물 비용을 충당합니다.
+            <br><span class="loc">(위치: 훈련장 - 종족 제패 눈알)</span>
+        </p>
+    </section>
+</div>
+
+</body>
+</html>
