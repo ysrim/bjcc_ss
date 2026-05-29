@@ -1,3 +1,74 @@
+
+
+
+js는
+
+var menuOpen = false;
+
+// 기존 이벤트 제거
+$(".wMenu > a").off();
+
+// 링크 이동 제거
+$(".wMenu > a").attr("href", "javascript:void(0)");
+
+// 클릭 이벤트
+$(".wMenu > a").on("click", function(e){
+
+   e.preventDefault();
+   e.stopPropagation();
+
+   if(menuOpen){
+
+      $("#allmenu").stop().animate({
+         height:"50px"
+      },300);
+
+      $(".gnb_sub.depth2").stop().animate({
+         height:"0"
+      },300);
+
+      menuOpen = false;
+
+   }else{
+
+      $("#allmenu").stop().animate({
+         height:"642px"
+      },300);
+
+      $(".gnb_sub.depth2").show().stop().animate({
+         height:"590px"
+      },300);
+
+      menuOpen = true;
+   }
+
+   return false;
+});
+
+// 바깥 클릭하면 닫기
+$(document).on("click", function(){
+
+   $("#allmenu").stop().animate({
+      height:"50px"
+   },300);
+
+   $(".gnb_sub.depth2").stop().animate({
+      height:"0"
+   },300);
+
+   menuOpen = false;
+});
+
+// 메뉴 내부 클릭 시 유지
+$("#allmenu").on("click", function(e){
+   e.stopPropagation();
+});
+
+
+이렇게 변경하셔야 클릭하면 메뉴가 펼쳐지는 구조로 변경될거 같아요!
+
+
+
 제목: 우리가 밟는 모든 땅에, 오직 예수님의 이름만 (거룩한 영적 노마드의 여정)
 
 하나님의 마음을 품고 몽골 단기선교를 향해 나아가는 고등부 공동체의 발걸음이 이제 눈앞으로 다가왔습니다.
