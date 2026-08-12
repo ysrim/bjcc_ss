@@ -3,139 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>목장예배 원고 - 영원한 은택을 기억하는 삶</title>
+    <title>목장 예배 설교 - 부활 신앙, 흔들리지 않는 삶의 뿌리</title>
     <style>
-        /* 화면(웹) 기본 스타일 */
-        body {
-            font-family: 'Pretendard', 'Malgun Gothic', sans-serif;
-            line-height: 1.5;
-            font-size: 14px; 
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f4f7f6;
-        }
-        .container {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        h1 {
-            color: #2c3e50;
-            font-size: 1.6em; 
-            text-align: center;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 15px;
-            margin-bottom: 20px;
-        }
-        h2 {
-            color: #2980b9;
-            font-size: 1.2em; 
-            margin-top: 25px;
-            margin-bottom: 10px;
-            border-left: 4px solid #2980b9;
-            padding-left: 10px;
-        }
-        h3 {
-            color: #34495e;
-            font-size: 1.05em; 
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-        p, li {
-            margin-bottom: 10px;
-        }
-        .script-box {
-            background-color: #f9fbfd;
-            border: 1px solid #e1e8ed;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        .highlight {
-            font-weight: bold;
-            color: #d35400;
-        }
-        .bible-verse {
-            background-color: #eef2f5;
-            padding: 15px;
-            font-size: 0.95em; 
-            font-style: italic;
-            border-radius: 8px;
-            text-align: center;
-            margin: 15px 0;
-            color: #2c3e50;
+        *, *::before, *::after {
+            box-sizing: border-box;
         }
 
-        /* 인쇄용(Print) 최적화 스타일 - 폰트 크기 축소 */
+        :root {
+            --primary-color: #333333;
+            --accent-color: #2b6cb0;
+            --secondary-accent: #3182ce;
+            --text-color: #2d3748;
+            --bg-color: #f4f1ea; /* 따뜻한 톤의 배경색 */
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --quote-bg: #f0f4f8;
+        }
+
+        body {
+            font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif;
+            font-size: 10pt; /* 사용자가 요청한 폰트 사이즈 10 설정 */
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            display: block;
+            max-width: 750px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            padding: 35px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 18px;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            font-size: 18pt;
+            color: var(--accent-color);
+            margin: 0 0 8px 0;
+            font-weight: bold;
+            letter-spacing: -0.5px;
+        }
+
+        .header p {
+            font-size: 10.5pt;
+            color: #555555;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 12pt;
+            color: #1a202c;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+            margin-top: 30px;
+            margin-bottom: 14px;
+            font-weight: bold;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        blockquote {
+            background-color: var(--quote-bg);
+            border-left: 4px solid var(--secondary-accent);
+            margin: 18px 0;
+            padding: 12px 18px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        blockquote p {
+            margin: 0;
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: #111111;
+        }
+
+        .highlight-box {
+            background-color: #fffaf0;
+            border: 1px solid #feebc8;
+            padding: 14px;
+            border-radius: 6px;
+            margin: 18px 0;
+        }
+
+        .q-box {
+            background-color: #fafafa;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 40px;
+        }
+
+        .q-box h3 {
+            margin-top: 0;
+            color: var(--accent-color);
+            font-size: 11pt;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .q-item {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            text-indent: -20px;
+        }
+
+        .q-num {
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-right: 4px;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: var(--border-color);
+            margin: 30px 0;
+        }
+
         @media print {
-            @page {
-                size: A4;
-                margin: 15mm; 
-            }
             body {
-                background-color: #fff;
+                background-color: #ffffff;
                 padding: 0;
-                color: #000;
+                font-size: 10pt;
             }
             .container {
                 box-shadow: none;
                 padding: 0;
                 max-width: 100%;
-            }
-            p, li {
-                line-height: 1.5; 
-                font-size: 11pt; 
-                margin-bottom: 6pt;
-            }
-            h1 {
-                font-size: 16pt; 
-                margin-bottom: 15pt;
-                padding-bottom: 10pt;
-                border-bottom: 2px solid #000;
-            }
-            h2 {
-                font-size: 13pt; 
-                margin-top: 20pt;
-                margin-bottom: 10px;
-                border-left: 4px solid #000;
-                color: #000;
-            }
-            h3 {
-                font-size: 12pt; 
-                margin-top: 15pt;
-                margin-bottom: 8pt;
-                color: #000;
-            }
-            ul, ol {
-                margin-top: 5pt;
-                margin-bottom: 10pt;
-                padding-left: 20pt;
-            }
-            .script-box {
-                border: 1px solid #aaa;
-                background-color: #fafafa !important;
-                -webkit-print-color-adjust: exact;
-                color-adjust: exact;
-                padding: 12pt;
-                margin-bottom: 15pt;
-                page-break-inside: avoid;
-                break-inside: avoid;
-            }
-            .bible-verse {
-                border: 1px solid #ccc;
-                background-color: #f5f5f5 !important;
-                -webkit-print-color-adjust: exact;
-                font-size: 11.5pt; 
-                font-weight: bold;
-                padding: 12pt;
-                margin: 15pt 0;
-            }
-            .highlight {
-                color: #000;
-                text-decoration: underline; 
             }
         }
     </style>
@@ -143,59 +166,57 @@
 <body>
 
 <div class="container">
-    <h1>목장예배: 영원한 은택을 기억하는 삶</h1>
-    
-    <div class="bible-verse">
-        "내 영혼아 여호와를 송축하며 그의 모든 은택을 잊지 말지어다"<br>
-        <strong>(시편 103편 2절)</strong>
+    <div class="header">
+        <h1>부활 신앙, 흔들리지 않는 삶의 뿌리</h1>
+        <p>본문: 고린도전서 15장 50절 ~ 58절</p>
     </div>
 
-    <div>
-        <h2>1. 마음 열기 및 찬양</h2>
-        <div class="script-box">
-            <p>목원 여러분, 한 주간도 치열한 세상 속에서, 또 자녀들과 가정을 돌보시느라 참 수고 많으셨습니다. 가끔 거울을 보거나 훌쩍 커버린 아이들을 볼 때면 세월이 정말 유수와 같음을 실감하게 됩니다. 오늘 우리가 나눌 시편 103편은 세월의 무상함과 인생의 쓴맛을 다 겪어본 다윗이, 그럼에도 불구하고 자기 영혼을 향해 "여호와를 송축하라"고 강렬하게 선포하는 찬양입니다. 오늘 본문에 담긴 은혜를 나누며 우리 영혼도 다시금 새 힘을 얻기를 소망합니다.</p>
-        </div>
-    </div>
+    <h2>서론: 우리는 어떤 몸으로 다시 살아날까요?</h2>
+    <p>고린도전서 15장은 부활장입니다. 사도 바울은 우리가 부활할 때 입을 몸을 '신령한 몸'이라 불렀는데, 이는 '육적이지 않다'는 뜻입니다. 원래 인간은 하나님의 생기로 가득한 존재였으나 죄로 인해 사망과 저주가 찾아왔습니다.</p>
+    <p>예수님이 십자가에 죽으시고 부활하신 이유는 단순히 우리를 구원하는 데 그치지 않고, 죄로 오염된 우리를 하나님의 거룩한 신부이자 신령한 생명의 존재로 재창조하시기 위함입니다.</p>
 
-    <div>
-        <h2>2. 말씀 나눔</h2>
-        <h3>① 잊지 말아야 할 5가지 은택</h3>
-        <div class="script-box">
-            <p>다윗이 그토록 하나님을 소리 높여 찬양(송축)하는 이유는, 하나님께서 우리 인생에 베푸신 뚜렷한 <span class="highlight">'은택(특별한 은혜와 축복)'</span>이 있기 때문입니다. 3절부터 5절까지 총 5가지가 나옵니다.</p>
-            <ul>
-                <li>우리의 모든 <strong>죄를 사하시며</strong></li>
-                <li>우리의 <strong>병을 고치시며</strong></li>
-                <li>생명을 파멸에서 <strong>속량하시고</strong></li>
-                <li>인자와 긍휼로 <strong>관을 씌우시며</strong></li>
-                <li>좋은 것으로 우리의 소원을 만족하게 하사 <strong>청춘을 독수리 같이 새롭게 하십니다.</strong></li>
-            </ul>
-            <p>젊은 시절에는 몰랐던 '병 고침'의 은혜, 삶의 벼랑 끝(파멸)에서 건져주신 은혜가 40대, 50대가 되니 더욱 뼈저리게 다가옵니다. 특히 5절의 '좋은 것'은 내 육신의 정욕이나 세상의 욕심이 아닙니다. 당시에는 쓰디쓴 고난 같고 아픔 같았지만, 세월이 지나 뒤돌아보니 결국 하나님께서 그분의 '가장 선한 것'으로 내 인생을 채우고 다듬어 오셨음을 우리는 고백하게 됩니다. 이것을 깨달을 때 우리 영혼은 독수리처럼 날아오를 새 힘을 얻습니다.</p>
-        </div>
+    <hr>
 
-        <h3>② 동에서 서로 완벽하게 옮겨주신 죄</h3>
-        <div class="script-box">
-            <p>이 놀라운 은택들 중에서도 다윗의 가슴을 가장 벅차게 한 것은 단연코 <span class="highlight">'죄 사함의 은혜'</span>입니다. 10-12절을 보면, 하나님은 우리의 죄악을 따라 그대로 처벌하지 않으십니다. 노하기를 더디 하시며, 동이 서에서 먼 것 같이 우리의 죄를 멀리 옮기셨다고 선포하십니다.</p>
-            <p>목사님께서 주일 강단에서 해주셨던 비유를 기억하십니까? 훗날 우리가 천국에 입성할 때, 커다란 전광판에 우리 인생의 기록이 영화처럼 상영된다고 상상해 보십시오. 우리는 내가 지은 수많은 죄와 부끄러운 과거가 공개될까 두렵겠지만, 하나님은 예수님의 십자가 보혈로 그 모든 죄의 기록을 '동에서 서로' 완벽하게 치워버리셨습니다. 그 거대한 스크린에는 오직 우리가 주님을 위해, 교회를 위해, 가정을 위해 땀 흘리며 헌신했던 아름다운 모습들만 찬란하게 비춰질 것입니다. 우리는 이 절대적인 긍휼과 사랑 덕분에 오늘이라는 고단한 현실도 넉넉히 이겨낼 수 있습니다.</p>
-        </div>
+    <h2>본론 1: 혈과 육은 하나님 나라를 이어받을 수 없습니다</h2>
+    <p>본문 50절을 보면 이렇게 말씀합니다.</p>
+    <blockquote>
+        <p>“형제들아 내가 이것을 말하노니 혈과 육은 하나님 나라를 이어받을 수 없고 또한 썩는 것은 썩지 아니하는 것을 유업으로 받지 못하느니라”</p>
+    </blockquote>
+    <p>여기서 ‘혈과 육’은 예수 그리스도를 배제한 채 죄로 오염되어 믿음 밖에 있는 상태를 뜻합니다. 의사들이 수술 전 오염을 방지하기 위해 철저히 소독하듯, 죄로 오염된 상태로는 거룩한 하나님 나라를 유업으로 받을 수 없습니다.</p>
+    <p>그래서 우리에게는 51절과 52절이 말씀하는 '신비한 변화'가 필요합니다.</p>
+    <blockquote>
+        <p>“보라 내가 너희에게 비밀을 말하노니 우리가 다 잠 잘 것이 아니요 마지막 나팔에 순식간에 홀연히 다 변화되리라 나팔 소리가 나매 죽은 자들이 썩지 아니할 것으로 다시 살아나고 우리도 변화되리라”</p>
+    </blockquote>
+    <p>바울은 이를 '비밀(신비)'이라 부릅니다. 믿음 없이는 도저히 이해할 수 없기 때문입니다. 마지막 나팔이 불릴 때 주 안에서 잠자던 자들이 썩지 않을 몸으로 살아나고 우리도 홀연히 변화될 것입니다. 이 땅의 연약한 육신이 아닌, 영광스럽고 신령한 몸을 입게 될 날을 기대합시다.</p>
 
-        <h3>③ 먼지 같은 인생과 천사의 영광</h3>
-        <div class="script-box">
-            <p>14절 이하에서 하나님은 우리의 체질이 단지 <span class="highlight">'먼지'</span>뿐임을 아신다고 하셨습니다. 우리 인생의 화려함도 결국 들의 꽃과 같아서, 바람 한 번 불면 비석에 새겨진 그럴듯한 직함조차 흔적도 없이 잊혀지는 것이 사람의 일생입니다. 이 땅의 것들을 영원히 쥘 수 있을 것처럼 아등바등 살아가는 것은 얼마나 허무한 일입니까?</p>
-            <p>그러나 이렇게 먼지같이 유한하고 무가치해 보이는 우리가 <span class="highlight">'영원'</span>에 잇대어 살아갈 놀라운 비결이 17-18절에 나옵니다. 바로 <strong>여호와를 경외하고 그분의 언약(말씀)을 지키며 사는 것</strong>입니다. 우리가 부족함 속에서도 하나님의 말씀을 붙잡고 순종하려고 몸부림칠 때, 하나님은 먼지 같은 우리를 20절에 나오는 '여호와의 말씀을 행하는 천사'와 같이 존귀하고 권능 있는 영광스러운 존재로 빚어주십니다.</p>
-        </div>
-    </div>
+    <hr>
 
-    <div>
-        <h2>3. 삶의 적용 및 기도</h2>
-        <div class="script-box">
-            <p>말씀을 맺겠습니다. 인생의 중반기를 지나며 우리는 내가 쥐고 있던 세상의 꽃들이 시들어가는 것을 경험합니다. 그러나 그때야말로 우리의 소원을 참된 선하심으로 채우시는 하나님의 은택을 바라볼 때입니다. 오늘 두 가지 기도 제목을 붙잡고 합심하여 기도하겠습니다.</p>
-            
-            <ol>
-                <li><strong>감사의 회복:</strong> 내 허물을 묻지 않으시고 동에서 서로 옮겨주신 아비의 마음, 그 깊은 긍휼과 십자가의 은혜에 대한 감사가 내 메마른 심령에 다시 불타오르게 하소서.</li>
-                <li><strong>말씀의 순종:</strong> 바람 불면 날아갈 세상의 모래성을 쌓는 일에 목숨 걸지 않게 하소서. 먼지 같은 내 삶이 말씀에 순종함으로 천사와 같이 주님의 뜻을 이루는 거룩한 통로가 되게 하소서.</li>
-            </ol>
-        </div>
-    </div>
+    <h2>본론 2: 사망을 삼키고 승리하신 예수님</h2>
+    <p>인간의 가장 큰 적은 죽음(사망)입니다. 죽음 앞에서는 세상의 돈, 권세, 인간의 사랑도 모든 효능을 잃어버립니다. 그러나 그리스도 예수 안에 있는 자들에게는 죽음이 끝이 아닙니다. 54절과 55절입니다.</p>
+    <blockquote>
+        <p>“…사망을 삼키고 이기리라고 기록된 말씀이 이루어지리라 사망아 너의 승리가 어디 있느냐 사망아 네가 쏘는 것이 어디 있느냐”</p>
+    </blockquote>
+    <p>예수님이 부활로 사망 권세를 깨뜨리셨기에, 우리도 사망을 향해 승리를 선포할 수 있습니다. 당시 '죽으면 끝'이라던 헬라 철학의 풍조 속에서 바울은 부활의 확실성과 예수님 안에서 이미 주어진 승리를 담호하게 선포합니다.</p>
+
+    <hr>
+
+    <h2>본론 3: 부활 신앙을 가진 자는 어떻게 살아야 합니까?</h2>
+    <p>이 놀라운 부활의 확신을 가진 우리는 이 땅에서 어떻게 살아가야 할까요? 핵심인 58절을 보겠습니다.</p>
+    <blockquote>
+        <p>“그러므로 내 사랑하는 형제들아 견실하며 흔들리지 말고 항상 주의 일에 더욱 힘쓰는 자들이 되라 이는 너희 수고가 주 안에서 헛되지 않은 줄 이름이라”</p>
+    </blockquote>
+    <p>사도 바울은 세 가지를 권면합니다.</p>
+    <ul>
+        <li><strong>첫째, 견실하며 흔들리지 마십시오.</strong> 외부의 유혹에 흔들리지 말고, 내적인 갈등과 시험을 이겨내라는 뜻입니다.</li>
+        <li><strong>둘째, 항상 주의 일에 더욱 힘쓰는 자들이 되십시오.</strong> 주의 일은 목회자만의 사역이 아닙니다. 가정과 일터 등 우리의 일상 속에서 주님과 동행하는 모든 삶이 주의 일입니다.</li>
+        <li><strong>셋째, 우리의 수고는 주 안에서 결코 헛되지 않습니다.</strong> 주 안에서 살아갈 때 때로 고난과 흔들림이 찾아오지만, 이는 우리 삶의 빈 공간을 하나님의 은혜로 빽빽하게 채우시는 과정입니다.</li>
+    </ul>
+
+    <hr>
+
+    <h2>결론: 주 안에서 헛된 수고는 없습니다</h2>
+    <p>목장으로 섬기다 보면 지치고 낙심될 때가 있습니다. 그러나 우리가 소리 없이 눈물로 기도하고 묵묵히 봉사하는 모든 수고는 결코 땅에 떨어지지 않습니다. 신실하신 하나님께서 부활의 날에 우리의 눈물을 닦아주시고 가장 영광스러운 몸으로 갚아주실 것입니다.</p>
+    <p>“이 땅의 것은 썩어지나 내 안에는 부활의 약속이 있다”는 확신을 가지고, 주님 오시는 날까지 죽도록 충성하며 나아가는 복된 목장과 성도님들이 되시기를 주님의 이름으로 간절히 축원합니다.</p>
 
 </div>
 
