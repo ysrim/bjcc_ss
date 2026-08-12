@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>봉동중앙교회 몽골 선교 현지 소식 (DAY 1-2)</title>
+    <style>
+        :root {
+            --primary-navy: #1E3A8A;
+            --primary-blue: #2563EB;
+            --light-blue: #EFF6FF;
+            --accent-gold: #D97706;
+            --bg-body: #F1F5F9;
+            --card-bg: #FFFFFF;
+            --text-main: #0F172A;
+            --text-sub: #475569;
+            --border-color: #E2E8F0;
+            
+            --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+            --shadow-md: 0 12px 24px -4px rgba(15, 23, 42, 0.08);
+            --shadow-hover: 0 16px 28px -6px rgba(37, 99, 235, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding: 30px 12px;
+            word-break: keep-all;
+        }
+
+        .board-container {
+            max-width: 780px;
+            margin: 0 auto;
+            background: #FFFFFF;
+            border-radius: 24px;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+
+        /* Inline Icon */
+        .inline-icon {
+            width: 1.15em;
+            height: 1.15em;
+            vertical-align: -0.18em;
+            object-fit: contain;
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        /* Header Banner */
+        .header-banner {
+            background: linear-gradient(145deg, #1E3A8A 0%, #2563EB 100%);
+            color: #FFFFFF;
+            padding: 44px 28px 36px;
+            text-align: center;
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            color: #FFFFFF;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 6px 18px;
+            border-radius: 100px;
+            margin-bottom: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .header-banner h1 {
+            font-size: 2.1rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .header-banner p {
+            font-size: 1.02rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* Content Area */
+        .content-body {
+            padding: 32px 24px;
+        }
+
+        /* Section Card */
+        .story-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            margin-bottom: 32px;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .story-card-header {
+            padding: 18px 24px;
+            background: #FAFAFC;
+            border-bottom: 1px solid #F1F5F9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .day-tag {
+            background: var(--primary-navy);
+            color: #FFFFFF;
+            font-weight: 800;
+            font-size: 0.82rem;
+            padding: 4px 12px;
+            border-radius: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .section-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+        }
+
+        .story-card-body {
+            padding: 24px;
+        }
+
+        .story-desc-box {
+            background: var(--light-blue);
+            border-left: 4px solid var(--primary-blue);
+            padding: 14px 18px;
+            border-radius: 0 12px 12px 0;
+            font-size: 0.95rem;
+            color: #1E293B;
+            margin-bottom: 22px;
+            line-height: 1.65;
+        }
+
+        /* Photo Grids */
+        .photo-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .photo-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .photo-item {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .photo-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .photo-wrapper {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            background: #E2E8F0;
+        }
+
+        .photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-item:hover .photo-wrapper img {
+            transform: scale(1.04);
+        }
+
+        .photo-caption {
+            padding: 10px 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-sub);
+            text-align: center;
+            background: #FFFFFF;
+            border-top: 1px solid #F1F5F9;
+        }
+
+        /* Footer */
+        .footer-credit {
+            text-align: center;
+            padding: 22px;
+            font-size: 0.88rem;
+            color: var(--text-sub);
+            background: #FAFAFC;
+            border-top: 1px solid #F1F5F9;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 640px) {
+            body { padding: 12px 6px; }
+            .content-body { padding: 20px 14px; }
+            .header-banner h1 { font-size: 1.6rem; }
+            .photo-grid-2, .photo-grid-3 { grid-template-columns: 1fr; }
+            .story-card-body { padding: 16px 14px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="board-container">
+    
+    <!-- 1. 헤더 배너 -->
+    <div class="header-banner">
+        <span class="header-badge">봉동중앙교회 고등부 몽골 선교</span>
+        <h1>
+            <img src="https://flagcdn.com/w40/mn.png" alt="Mongolia" class="inline-icon" style="border-radius: 3px; width: 1.2em; height: auto;">
+            DAY 1-2 사역 현장 소식
+        </h1>
+        <p>"출국 & 현지 입국 / 사역지 정비 및 은혜의 기도회"</p>
+    </div>
+
+    <!-- 2. 본문 컨텐츠 -->
+    <div class="content-body">
+
+        <!-- Section 1: 1일차 출발 및 현지 도착 -->
+        <div class="story-card">
+            <div class="story-card-header">
+                <div class="section-title">
+                    <img src="https://img.icons8.com/color/48/airplane-take-off.png" alt="Flight" class="inline-icon">
+                    1일차 : 국내 이동 & 몽골 현지 도착
+                </div>
+                <span class="day-tag">7월 24일 ~ 25일</span>
+            </div>
+            <div class="story-card-body">
+                <div class="story-desc-box">
+                    설렘과 기도로 시작된 몽골 선교의 첫 발걸음입니다. 교회에서의 출발 예배와 목사님의 축복 기도를 시작으로 인천국제공항을 거쳐 몽골 울란바토르 공항에 무사히 도착했습니다. 숙소 이동 후 도착 감사 예배를 드리며 본격적인 사역을 준비했습니다.
+                </div>
+
+                <div class="photo-grid-2">
+                    <div class="photo-item">
+                        <div class="photo-wrapper">
+                            <img src="https://cdn.jsdelivr.net/gh/ysrim/bjcc_ss@main/images/mng26mp/1.24_25_%ED%99%98%EC%86%A1%EB%8F%84%EC%B0%A9/1.24_25_%ED%99%98%EC%86%A1%EB%8F%84%EC%B0%A9_1.%EB%AA%A9%EC%82%AC%EB%8B%98%EA%B8%B0%EB%8F%84.jpg" alt="출발 전 목사님 기도">
+                        </div>
+                        <div class="photo-caption">출발 전 목사님의 축복 기도 및 환송 모임</div>
+                    </div>
+                    <div class="photo-item">
+                        <div class="photo-wrapper">
+                            <img src="https://cdn.jsdelivr.net/gh/ysrim/bjcc_ss@main/images/mng26mp/1.24_25_환송도착/1.24_25_환송도착_2.인천공항도착.jpg" alt="인천공항 도착">
+                        </div>
+                        <div class="photo-caption">인천국제공항 도착 및 단체 기념사진</div>
+                    </div>
+                    <div class="photo-item">
+                        <div class="photo-wrapper">
+                            <img src="https://cdn.jsdelivr.net/gh/ysrim/bjcc_ss@main/images/mng26mp/1.24_25_환송도착/1.24_25_환송도착_3.도착.jpg" alt="울란바토르 공항 도착">
+                        </div>
+                        <div class="photo-caption">초원의집 도착</div>
+                    </div>
+                    <div class="photo-item">
+                        <div class="photo-wrapper">
+                            <img src="https://cdn.jsdelivr.net/gh/ysrim/bjcc_ss@main/images/mng26mp/1.24_25_%ED%99%98%EC%86%A1%EB%8F%84%EC%B0%A9/1.24_25_%ED%99%98%EC%86%A1%EB%8F%84%EC%B0%A9_4.%EB%8F%84%EC%B0%A9%EA%B8%B0%EB%8F%84.jpg" alt="도착 감사 기도회">
+                        </div>
+                        <div class="photo-caption">숙소 도착 후 올린 감사의 도착 예배</div>
+                    </div>
+                    <div class="photo-item" style="grid-column: span 2;">
+                        <div class="photo-wrapper" style="aspect-ratio: 16 / 7;">
+                            <img src="https://cdn.jsdelivr.net/gh/ysrim/bjcc_ss@main/images/mng26mp/1.24_25_%ED%99%98%EC%86%A1%EB%8F%84%EC%B0%A9/1.24_25_%ED%99%98%EC%86%A1%EB%8F%84%EC%B0%A9_5.%EB%AC%BC%ED%92%88%EC%A0%95%EB%A6%AC.jpg" alt="사역 물품 정리">
+                        </div>
+                        <div class="photo-caption">다음 날 사역을 위한 물품 점검 및 정돈</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: 2일차 사역지 환경 정비 (풀베기) -->
+        <div class="story-card">
+            <div class="story-card-header">
+                <div class="section-title">
+					<img src="https://img.icons8.com/color/48/pray.png" alt="Pray" class="inline-icon">
+                    2일차 : 사역지 환경 정비 & 풀베기 봉사
+                </div>
+                <span class="day-tag">7월 25일 (낮)</span>
+            </div>
+            <div class="story-card-body">
+                <div class="story-desc-box">
+                    본격적인 사역의 시작으로 복음이 전해질 사역지 주변의 환경을 정비했습니다. 잡초가 무성했던 현장을 대원들이 마음을 모아 땀 흘려 베어내고 정돈하며, 현지 이웃들과 어린이들이 쾌적한 환경에서 찾아올 수 있도록 정성을 다해 준비했습니다.
+                </div>
+
+                <div class="photo-grid-3">
+                    <div class="photo-item">
+                        <div class="photo-wrapper">
+                            <img src="https://cdn.jsdelivr.net/gh/ysrim/bjcc_ss@main/images/mng26mp/2.25_%ED%92%80%EB%B2%A0%EA%B8%B0/2.25_%ED%92%80%EB%B2%A0%EA%B8%B0_1.%ED%92%80%EB%B2%A0%EA%B8%B0%EC%A0%84.jpg" alt="풀베기 전 1">
+                        </div>
+                        <div class="photo-caption">[작업 전] 무성하게 자란 풀베기 전 현장</div>
+                    </div>
+                    <div class="photo-item">
+                        <div class="photo-wrapper">
+                            <img src="https://cdn.jsdelivr.net/gh/ysrim/bjcc_ss@main/images/mng26mp/2.25_%ED%92%80%EB%B2%A0%EA%B8%B0/2.25_%ED%92%80%EB%B2%A0%EA%B8%B0_2.%ED%92%80%EB%B2%A0%EA%B8%B0%EC%A0%84.jpg" alt="풀베기 전 2">
+                        </div>
+                        <div class="photo-caption">[작업 전] 사역지 입구 주변 둘러보기</div>
+                    </div>
+                    <div class="photo-item">
+                        <div class="photo-wrapper">
+                            <img src="https://cdn.jsdelivr.net/gh/ysrim/bjcc_ss@main/images/mng26mp/2.25_%ED%92%80%EB%B2%A0%EA%B8%B0/2.25_%ED%92%80%EB%B2%A0%EA%B8%B0_3.%ED%92%80%EB%B2%A0%EA%B8%B0%EB%AA%A8%EC%8A%B5.jpg" alt="풀베기 모습 1">
+                        </div>
+                        <div class="photo-caption">[작업 중] 땀 흘리며 잡초를 제거하는 대원들</div>
+                    </div>
+                    <div class="photo-item">
+                        <div class="photo-wrapper">
+                            <img src="https://cdn.jsdelivr.net/gh/ysrim/bjcc_ss@main/images/mng26mp/2.25_%ED%92%80%EB%B2%A0%EA%B8%B0/2.25_%ED%92%80%EB%B2%A0%EA%B8%B0_4.%ED%92%80%EB%B2%A0%EA%B8%B0%EB%AA%A8%EC%8A%B5.jpg" alt="풀베기 모습 2">
+                        </div>
+                        <div class="photo-caption">[작업 중] 기쁨으로 힘을 보태는 섬김의 손길</div>
+                    </div>
+                    <div class="photo-item">
+                        <div class="photo-wrapper">
+                            <img src="https://cdn.jsdelivr.net/gh/ysrim/bjcc_ss@main/images/mng26mp/2.25_%ED%92%80%EB%B2%A0%EA%B8%B0/2.25_%ED%92%80%EB%B2%A0%EA%B8%B0_5.%ED%92%80%EB%B2%A0%EA%B8%B0%EC%9D%B4%ED%9B%84.jpg" alt="풀베기 이후 1">
+                        </div>
+                        <div class="photo-caption">[작업 후] 깨끗하고 정돈된 사역지 환경</div>
+                    </div>
+                    <div class="photo-item">
+                        <div class="photo-wrapper">
+                            <img src="https://cdn.jsdelivr.net/gh/ysrim/bjcc_ss@main/images/mng26mp/2.25_%ED%92%80%EB%B2%A0%EA%B8%B0/2.25_%ED%92%80%EB%B2%A0%EA%B8%B0_6.%ED%92%80%EB%B2%A0%EA%B8%B0%EC%9D%B4%ED%9B%84.jpg" alt="풀베기 이후 2">
+                        </div>
+                        <div class="photo-caption">[작업 후] 화사하게 단장된 현장 모습</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: 2일차 저녁 기도회 & 현지 성도 섬김 -->
+        <div class="story-card">
+            <div class="story-card-header">
+                <div class="section-title">
+					<img src="https://img.icons8.com/color/48/pray.png" alt="Pray" class="inline-icon">
+                    2일차 : 현지 성도 섬김 & 은혜의 저녁 기도회
+                </div>
+                <span class="day-tag">7월 25일 (저녁)</span>
+            </div>
+            <div class="story-card-body">
+                <div class="story-desc-box">
+                    지친 대원들을 위해 현지 성도님께서 사랑이 담긴 간식을 대접해 주셨습니다. 저녁 시간에는 대원들이 다 함께 모여 첫날 사역의 은혜를 나누고, 다가올 주일 사역과 여름성경학교를 위해 가슴 깊이 기도하는 뜻깊은 시간을 가졌습니다.
+                </div>
+
+                <div class="photo-grid-3">
+                    <div class="photo-item">
+                        <div class="photo-wrapper">
+                            <img src="https://cdn.jsdelivr.net/gh/ysrim/bjcc_ss@main/images/mng26mp/3.25_저녁기도회/3.25_저녁기도회_1.성도님의헌신.jpg" alt="성도님의 헌신">
+                        </div>
+                        <div class="photo-caption">선교팀을 위해 사랑으로 섬겨주신 현지 성도님</div>
+                    </div>
+                    <div class="photo-item">
+                        <div class="photo-wrapper">
+                            <img src="https://cdn.jsdelivr.net/gh/ysrim/bjcc_ss@main/images/mng26mp/3.25_%EC%A0%80%EB%85%81%EA%B8%B0%EB%8F%84%ED%9A%8C/3.25_%EC%A0%80%EB%85%81%EA%B8%B0%EB%8F%84%ED%9A%8C_2.1%EC%9D%BC%EC%B0%A8%EA%B8%B0%EB%8F%84%ED%9A%8C.jpg" alt="1일차 기도회 1">
+                        </div>
+                        <div class="photo-caption">하루를 마무리하며 드린 은혜로운 저녁 기도회</div>
+                    </div>
+                    <div class="photo-item">
+                        <div class="photo-wrapper">
+                            <img src="https://cdn.jsdelivr.net/gh/ysrim/bjcc_ss@main/images/mng26mp/3.25_%EC%A0%80%EB%85%81%EA%B8%B0%EB%8F%84%ED%9A%8C/3.25_%EC%A0%80%EB%85%81%EA%B8%B0%EB%8F%84%ED%9A%8C_3.1%EC%9D%BC%EC%B0%A8%EA%B8%B0%EB%8F%84%ED%9A%8C.jpg" alt="1일차 기도회 2">
+                        </div>
+                        <div class="photo-caption">몽골 땅을 품고 뜨겁게 합심 기도하는 대원들</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 3. 푸터 -->
+    <div class="footer-credit">
+        "선교 대원들의 걸음을 지켜주신 하나님께 감사드립니다!" · 봉동중앙교회 고등부
+    </div>
+
+</div>
+
+</body>
+</html>
